@@ -51,12 +51,17 @@ function checkFormValidation(forms) {
                 errorFlag = true;
             }
         } else if (i == forms.length - 2) {
+            if(forms[i].elements[0].value !== "") {
+                // TODO create some check date
+            }
             continue; // Notification is not a required field
         } else if (forms[i].elements[0].value === "") {
             addErrorField(forms[i], "Заполните поле!");
             errorFlag = true;
         }
     }
+
+
     return errorFlag;
 }
 

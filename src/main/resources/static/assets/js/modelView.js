@@ -30,6 +30,12 @@ window.addEventListener("load", async () => {
                 modelButton.setAttribute('type', "button");
                 modelButton.setAttribute('id', "modalView");
                 modelButton.style = "margin-left: -1px;font-size: 41px;background: var(--bs-border-color-translucent);";
+                modelButton.onclick = function() {
+                    sendRequest("/manufacture/" + i.id, "GET").then((result) => {
+                        $('#modal-1').modal('show');
+                        // TODO ADD FUNCTION TO RESOLVE DATA IN FORM
+                    });
+                };
 
                 let modelDivCol = document.createElement("div");
                 modelDivCol.className = "col";
@@ -47,8 +53,7 @@ window.addEventListener("load", async () => {
         });
 });
 
-
-
+let singleDataForModal;
 
 
 
