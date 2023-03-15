@@ -34,6 +34,7 @@ window.addEventListener("load", async () => {
                     sendRequest("/manufacture/" + i.id, "GET").then((result) => {
                         $('#modal-1').modal('show');
                         // TODO ADD FUNCTION TO RESOLVE DATA IN FORM
+
                     });
                 };
 

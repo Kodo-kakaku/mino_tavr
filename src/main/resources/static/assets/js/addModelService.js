@@ -40,7 +40,7 @@ function removeValidation() {
 function checkFormValidation(forms) {
     let errorFlag = false;
     for (let i = 0; i < forms.length; i++) {
-        if (i == 2 && forms[2].elements[0].value === "") {
+        if (i === 2 && forms[2].elements[0].value === "") {
             if (forms[i - 1].elements[0].value === '0' || forms[i - 1].elements[0].value === '1') {
                 addErrorField(forms[i], "Заполните поле!");
                 errorFlag = true;
@@ -50,18 +50,21 @@ function checkFormValidation(forms) {
                 addErrorField(forms[i], "Заполните поле: Наименование устройства!");
                 errorFlag = true;
             }
-        } else if (i == forms.length - 2) {
-            if(forms[i].elements[0].value !== "") {
-                // TODO create some check date
+        } else if (i === forms.length - 2) {
+            if(forms[i].elements[0].value !== "" && forms[6].elements[0].value !== "") {
+                let notification = new Date(forms[i].elements[0].value);
+                let makingStartDate = new Date(forms[6].elements[0].value);
+                let dateDifferent = Math.round((notification - makingStartDate) / (1000 * 60 * 60 * 24));
+                if(dateDifferent <= 0) {
+                    addErrorField(forms[i], "Нельзя установить уведомление в прошлом или настоящем!");
+                    errorFlag = true;
+                }
             }
-            continue; // Notification is not a required field
         } else if (forms[i].elements[0].value === "") {
             addErrorField(forms[i], "Заполните поле!");
             errorFlag = true;
         }
     }
-
-
     return errorFlag;
 }
 
