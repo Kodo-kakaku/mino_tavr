@@ -34,24 +34,24 @@
 </head>
 
 <body style="background: rgb(45,44,56);border-color: var(--bs-navbar-color);">
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+    <div class="modal fade" role="dialog" tabindex="-1" id="modalViewModel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body" style="background: rgb(45,44,56);">
                     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                        <div class="col-10 col-sm-8 col-lg-6"><img class="img-fluid border rounded border-light d-block mx-lg-auto" src="../assets/img/12699.30_3_500.jpg" width="700" height="500" loading="lazy"></div>
+                        <div class="col-10 col-sm-8 col-lg-6"><img class="img-fluid border rounded border-light d-block mx-lg-auto" id="imageModelView" src="../assets/img/12699.30_3_500.jpg" width="700" height="500" loading="lazy"></div>
                         <div class="col-lg-6">
                             <div class="border rounded border-warning">
                                 <h1 class="text-center display-5 fw-bold lh-1 mb-3" style="padding-bottom: 0px;margin-bottom: 17px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">Модель</h1>
-                                <h1 class="text-center display-5 fw-bold lh-1 mb-3" style="margin-top: -11px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">№ 001488</h1>
+                                <h1 class="text-center display-5 fw-bold lh-1 mb-3" id="modelViewNumber" style="margin-top: -11px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">№ 001488</h1>
                             </div>
-                            <p class="fs-4 lead" style="text-align: center;margin-top: 10px;font-family: 'Kaushan Script', serif;margin-bottom: -15px;color: var(--bs-gray-400);">Основание проведения работ</p>
-                            <p class="fs-5 lead" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);"><span class="fs-5" style="font-family: 'Abril Fatface', serif;">Журнал</span>&nbsp;№&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">232323232</span></p>
+                            <p class="fs-4 lead" style="text-align: center;margin-top: 10px;font-family: 'Kaushan Script', serif;margin-bottom: -15px;color: var(--bs-gray-400);text-decoration:underline;">Основание проведения работ</p>
+                            <p class="fs-5 lead" id="modelViewReason" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);"><span class="fs-5" style="font-family: 'Abril Fatface', serif;">Журнал</span>&nbsp;№&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">232323232</span></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="fs-5 lead" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-yellow);">&nbsp;Принято в работу:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">23.12.2023</span></p>
+                            <p class="fs-5 lead" id="modelViewInWorkDateBegin" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-yellow);">&nbsp;Принято в работу:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">23.12.2023</span></p>
                             <div class="table-responsive text-center">
                                 <table class="table">
                                     <thead class="text-truncate">
@@ -64,25 +64,25 @@
                                     <tbody>
                                         <tr class="text-break">
                                             <td class="text-break text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Сотрудник</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">Жгулев А И</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">Куколдов Б А</td>
+                                            <td class="text-break" id="modelViewMemberBegin" style="color: var(--bs-modal-bg);">Жгулев А И</td>
+                                            <td class="text-break" id="modelViewDealerBegin" style="color: var(--bs-modal-bg);">Куколдов Б А</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Отдел</td>
-                                            <td style="color: var(--bs-modal-bg);">25</td>
-                                            <td style="color: var(--bs-modal-bg);">13</td>
+                                            <td id="modelViewSubdivisionMemberBegin" style="color: var(--bs-modal-bg);">25</td>
+                                            <td id="modelViewSubdivisionDealerBegin" style="color: var(--bs-modal-bg);">13</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Управление</td>
-                                            <td style="color: var(--bs-modal-bg);">Т</td>
-                                            <td style="color: var(--bs-modal-bg);">М</td>
+                                            <td id="modelViewDepartmentMemberBegin" style="color: var(--bs-modal-bg);">Т</td>
+                                            <td id="modelViewDepartmentDealerBegin" style="color: var(--bs-modal-bg);">М</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="col">
-                            <p class="fs-5 lead" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-yellow);">&nbsp;Передано заказчику:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">23.11.2024</span></p>
+                            <p class="fs-5 lead" id="modelViewInWorkDateEnd" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-yellow);">&nbsp;Передано заказчику:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">23.11.2024</span></p>
                             <div class="table-responsive text-center">
                                 <table class="table">
                                     <thead class="text-truncate">
@@ -95,18 +95,18 @@
                                     <tbody>
                                         <tr class="text-break">
                                             <td class="text-break text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Сотрудник</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">Жгулев А И</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">Куколдов Б А</td>
+                                            <td class="text-break" id="modelViewMemberEnd" style="color: var(--bs-modal-bg);">Жгулев А И</td>
+                                            <td class="text-break" id="modelViewDealerEnd" style="color: var(--bs-modal-bg);">Куколдов Б А</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Отдел</td>
-                                            <td style="color: var(--bs-modal-bg);">25</td>
-                                            <td style="color: var(--bs-modal-bg);">13</td>
+                                            <td id="modelViewSubdivisionMemberEnd" style="color: var(--bs-modal-bg);">25</td>
+                                            <td id="modelViewSubdivisionDealerEnd" style="color: var(--bs-modal-bg);">13</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Управление</td>
-                                            <td style="color: var(--bs-modal-bg);">Т</td>
-                                            <td style="color: var(--bs-modal-bg);">М</td>
+                                            <td id="modelViewDepartmentMemberEnd" style="color: var(--bs-modal-bg);">Т</td>
+                                            <td id="modelViewDepartmentDealerEnd" style="color: var(--bs-modal-bg);">М</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -117,7 +117,7 @@
                         <div class="col">
                             <p class="fs-3" style="text-align: center;color: var(--bs-yellow);font-family: 'Abril Fatface', serif;margin-bottom: 1px;">Состав изделия</p>
                             <div class="table-responsive text-center">
-                                <table class="table">
+                                <table class="table" id="tableDescription">
                                     <thead class="text-truncate">
                                         <tr>
                                             <th style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Наименование</th>
@@ -132,12 +132,6 @@
                                             <td class="text-break" style="color: var(--bs-modal-bg);">032320909903434</td>
                                             <td class="text-break" style="color: var(--bs-modal-bg);">4309309430434343</td>
                                             <td class="text-break" style="color: var(--bs-modal-bg);">sjkjhfdkfjdksjfksdjfkldsjfkjdsklfjdskljfksdjfkdsjfkldsjlfjdksljfkdsjfkljsdfkjdskfjksdjfksjdfkljdsklfjdsklfjkdsjfklsdjfklsdjfkldsjfkljsdlkfjsdklfjdsklfj</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color: var(--bs-modal-bg);">Text</td>
-                                            <td style="color: var(--bs-modal-bg);">Text</td>
-                                            <td style="color: var(--bs-modal-bg);">Text</td>
-                                            <td style="color: var(--bs-modal-bg);">Cell 3</td>
                                         </tr>
                                     </tbody>
                                 </table>

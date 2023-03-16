@@ -30,11 +30,44 @@ window.addEventListener("load", async () => {
                 modelButton.setAttribute('type', "button");
                 modelButton.setAttribute('id', "modalView");
                 modelButton.style = "margin-left: -1px;font-size: 41px;background: var(--bs-border-color-translucent);";
+                console.log(i);
                 modelButton.onclick = function() {
                     sendRequest("/manufacture/" + i.id, "GET").then((result) => {
-                        $('#modal-1').modal('show');
-                        // TODO ADD FUNCTION TO RESOLVE DATA IN FORM
+                        $('#modalViewModel').modal('show');
+                        document.getElementById('modelViewNumber').innerHTML = "№ " + result.id;
 
+                        let reason = () => {
+                            let reasonType = ["СЛУЖЕБНАЯ ЗАПИСКА", "ЖУРНАЛ", "ИНОЕ"];
+                            let reasonNumber = result.reason === 2 ? "" : " № " + result.reasonNumber;
+                            return reasonType[result.reason] + reasonNumber;
+                        };
+                        
+                        document.getElementById('modelViewReason').innerHTML = reason();
+                        
+                        document.getElementById('modelViewInWorkDateBegin').innerHTML = "Принято в работу: " + result.interactionBegin.date;
+                        document.getElementById('modelViewMemberBegin').innerHTML = result.interactionBegin.member.name;
+                        document.getElementById('modelViewSubdivisionMemberBegin').innerHTML = result.interactionBegin.member.subdivision;
+                        document.getElementById('modelViewDepartmentMemberBegin').innerHTML = result.interactionBegin.member.department;
+                        
+                        document.getElementById('modelViewDealerBegin').innerHTML = result.interactionBegin.dealer.name;
+                        document.getElementById('modelViewSubdivisionDealerBegin').innerHTML = result.interactionBegin.dealer.subdivision;
+                        document.getElementById('modelViewDepartmentDealerBegin').innerHTML = result.interactionBegin.dealer.department;
+                        
+                        
+                        document.getElementById('modelViewInWorkDateEnd').innerHTML = "Передано заказчику: " + result.interactionEnd.date;
+                        document.getElementById('modelViewMemberEnd').innerHTML = result.interactionEnd.member.name;
+                        document.getElementById('modelViewSubdivisionMemberEnd').innerHTML = result.interactionEnd.member.subdivision;
+                        document.getElementById('modelViewDepartmentMemberEnd').innerHTML = result.interactionEnd.member.department;
+                        
+                        document.getElementById('modelViewDealerEnd').innerHTML = result.interactionEnd.dealer.name;
+                        document.getElementById('modelViewSubdivisionDealerEnd').innerHTML = result.interactionEnd.dealer.subdivision;
+                        document.getElementById('modelViewDepartmentDealerEnd').innerHTML = result.interactionEnd.dealer.department;
+                        
+                        document.getElementById('imageModelView').src = "data:image/jpeg;base64," + result.image;
+                        
+                        let table = ocument.getElementById('imageModelView');
+                        // TODO ADD FUNCTION TO RESOLVE DATA IN FORM
+                    
                     });
                 };
 

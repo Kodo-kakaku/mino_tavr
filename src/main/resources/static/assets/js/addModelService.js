@@ -151,6 +151,10 @@ document.getElementById("openAdd").addEventListener("click", () => {
     document.getElementById("reasonNumber").style.display = "none"
 });
 
+$('.noEnterSubmit').keypress(function(e){
+    if ( e.which == 13 ) return false;
+});
+
 let addModelId;
 let device = document.getElementById("device");
 const deviceRow = document.getElementById("deviceRow");
