@@ -18,11 +18,11 @@ public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "done")
-    boolean done;
+    private boolean done;
     @Column(name = "note")
-    String note;
+    private String note;
     @Column(name = "notification")
-    Date notification;
+    private Date notification;
     @Lob
     @Column(name = "image", columnDefinition = "BLOB")
     private byte[] image;

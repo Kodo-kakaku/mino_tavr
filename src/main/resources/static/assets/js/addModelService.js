@@ -133,6 +133,9 @@ document.getElementById("addButton").addEventListener("click", async () => {
         descriptionRows[i].remove();
     }
 
+    // TODO How to delete text from input fields!!!
+    forms[3].elements[0].value = "";
+
     $('#modalAdd').modal('hide');
     addModelId = await sendBodyRequest("/manufacture/add", 'POST', postRequestObj);
     $('#modalSaveTicket').modal('show');

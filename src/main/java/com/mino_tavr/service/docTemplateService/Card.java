@@ -21,7 +21,7 @@ public abstract class Card {
     private final XWPFDocument doc;
     private final List<XWPFTable> tables;
     private final String[] deviceType = {"Аудио", "Фото", "Видео", "Иное"};
-    private final String[] reasonType = {"Служебная записка", "Журнал", "Иное"};
+    private final String[] reasonType = {"Журнал", "Служебная записка", "Иное"};
 
     public void writeField(XWPFTableCell cell, String val, int frontSize) {
         cell.removeParagraph(0);

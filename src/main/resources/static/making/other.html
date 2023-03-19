@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="../assets/css/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.css">
     <link rel="stylesheet" href="../assets/css/Bootstrap-4---Photo-Gallery.css">
+    <link rel="stylesheet" href="../assets/css/Drag-and-Drop-File-Input.css">
     <link rel="stylesheet" href="../assets/css/Drag-and-Drop-Multiple-File-Form-Input-upload-Advanced.css">
     <link rel="stylesheet" href="../assets/css/Drag-Drop-File-Input-Upload.css">
     <link rel="stylesheet" href="../assets/css/Filter.css">
@@ -39,19 +40,51 @@
             <div class="modal-content">
                 <div class="modal-body" style="background: rgb(45,44,56);">
                     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-                        <div class="col-10 col-sm-8 col-lg-6"><img class="img-fluid border rounded border-light d-block mx-lg-auto" id="imageModelView" src="../assets/img/12699.30_3_500.jpg" width="700" height="500" loading="lazy"></div>
+                        <div class="col-10 col-sm-8 col-lg-6"><img class="img-fluid border rounded border-light d-block mx-lg-auto" id="imageModelView" width="700" height="500" loading="lazy"></div>
                         <div class="col-lg-6">
                             <div class="border rounded border-warning">
                                 <h1 class="text-center display-5 fw-bold lh-1 mb-3" style="padding-bottom: 0px;margin-bottom: 17px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">Модель</h1>
-                                <h1 class="text-center display-5 fw-bold lh-1 mb-3" id="modelViewNumber" style="margin-top: -11px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">№ 001488</h1>
+                                <h1 class="text-center display-5 fw-bold lh-1 mb-3" id="modelViewNumber" style="margin-top: -11px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">№ -</h1>
+                                <div class="row">
+                                    <div class="col-8" style="margin-bottom: 0px;padding-bottom: 0px;">
+                                        <p class="fs-5 text-start lead" style="text-align: center;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 10px;margin-left: 14px;margin-top: 0px;"><i class="fas fa-cogs" style="font-size: 15px;color: var(--bs-yellow);"></i>&nbsp;Статус изготовления:</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="fs-5 lead" id="modelViewStatus" style="text-align: left;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 10px;margin-top: 0px;">-</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5" style="margin-bottom: 0px;margin-top: 0px;">
+                                        <p class="fs-5 text-start lead" style="text-align: center;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 10px;margin-top: 0px;margin-left: 14px;"><i class="far fa-bookmark" style="font-size: 15px;color: var(--bs-yellow);"></i>&nbsp; &nbsp;Основание:</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="fs-5 lead" id="modelViewReason" style="text-align: center;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 10px;margin-top: 0px;">-</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5" style="padding-top: 35px;margin-top: -35px;">
+                                        <p class="fs-5 text-start lead" style="text-align: center;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 10px;margin-left: 14px;margin-top: 0px;"><i class="far fa-list-alt" style="font-size: 15px;border-color: var(--bs-modal-bg);color: var(--bs-yellow);"></i>&nbsp; Номер:</p>
+                                    </div>
+                                    <div class="col">
+                                        <p class="fs-5 lead" id="modelViewReasonNumber" style="text-align: center;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-top: 0px;">-</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="fs-4 lead" style="text-align: center;margin-top: 10px;font-family: 'Kaushan Script', serif;margin-bottom: -15px;color: var(--bs-gray-400);text-decoration:underline;">Основание проведения работ</p>
-                            <p class="fs-5 lead" id="modelViewReason" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);"><span class="fs-5" style="font-family: 'Abril Fatface', serif;">Журнал</span>&nbsp;№&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">232323232</span></p>
                         </div>
+                    </div>
+                    <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);padding-top: 0px;margin-top: 5px;margin-bottom: 0px;">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="color: var(--bs-yellow);font-size: 25px;">
+                            <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                            <path d="M364.2 83.8C339.8 59.39 300.2 59.39 275.8 83.8L91.8 267.8C49.71 309.9 49.71 378.1 91.8 420.2C133.9 462.3 202.1 462.3 244.2 420.2L396.2 268.2C407.1 257.3 424.9 257.3 435.8 268.2C446.7 279.1 446.7 296.9 435.8 307.8L283.8 459.8C219.8 523.8 116.2 523.8 52.2 459.8C-11.75 395.8-11.75 292.2 52.2 228.2L236.2 44.2C282.5-2.08 357.5-2.08 403.8 44.2C450.1 90.48 450.1 165.5 403.8 211.8L227.8 387.8C199.2 416.4 152.8 416.4 124.2 387.8C95.59 359.2 95.59 312.8 124.2 284.2L268.2 140.2C279.1 129.3 296.9 129.3 307.8 140.2C318.7 151.1 318.7 168.9 307.8 179.8L163.8 323.8C157.1 330.5 157.1 341.5 163.8 348.2C170.5 354.9 181.5 354.9 188.2 348.2L364.2 172.2C388.6 147.8 388.6 108.2 364.2 83.8V83.8z"></path>
+                        </svg>&nbsp;Заметки</p>
+                    <div style="margin-left: 11px;">
+                        <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
+                            <div class="form-group mb-3" style="margin-right: 13px;margin-left: 7px;"><textarea class="form-control" id="ModelViewNote" style="background: var(--bs-border-color-translucent);border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);margin-top: -10px;padding-right: 4px;margin-right: -16px;" readonly=""></textarea></div>
+                        </form>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="fs-5 lead" id="modelViewInWorkDateBegin" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-yellow);">&nbsp;Принято в работу:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">23.12.2023</span></p>
+                            <p class="text-center" style="margin-top: 10px;margin-bottom: 0px;"><i class="fas fa-people-carry" style="color: var(--bs-yellow);font-size: 20px;"></i></p>
+                            <p class="fs-5 lead" id="modelViewInWorkDateBegin" style="text-align: center;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-modal-bg);margin-top: -5px;">&nbsp;Принято в работу:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">-</span></p>
                             <div class="table-responsive text-center">
                                 <table class="table">
                                     <thead class="text-truncate">
@@ -64,25 +97,26 @@
                                     <tbody>
                                         <tr class="text-break">
                                             <td class="text-break text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Сотрудник</td>
-                                            <td class="text-break" id="modelViewMemberBegin" style="color: var(--bs-modal-bg);">Жгулев А И</td>
-                                            <td class="text-break" id="modelViewDealerBegin" style="color: var(--bs-modal-bg);">Куколдов Б А</td>
+                                            <td class="text-break" id="modelViewMemberBegin" style="color: var(--bs-modal-bg);">-</td>
+                                            <td class="text-break" id="modelViewDealerBegin" style="color: var(--bs-modal-bg);">-</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Отдел</td>
-                                            <td id="modelViewSubdivisionMemberBegin" style="color: var(--bs-modal-bg);">25</td>
-                                            <td id="modelViewSubdivisionDealerBegin" style="color: var(--bs-modal-bg);">13</td>
+                                            <td id="modelViewSubdivisionMemberBegin" style="color: var(--bs-modal-bg);">-</td>
+                                            <td id="modelViewSubdivisionDealerBegin" style="color: var(--bs-modal-bg);">-</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Управление</td>
-                                            <td id="modelViewDepartmentMemberBegin" style="color: var(--bs-modal-bg);">Т</td>
-                                            <td id="modelViewDepartmentDealerBegin" style="color: var(--bs-modal-bg);">М</td>
+                                            <td id="modelViewDepartmentMemberBegin" style="color: var(--bs-modal-bg);">-</td>
+                                            <td id="modelViewDepartmentDealerBegin" style="color: var(--bs-modal-bg);">-</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <div class="col">
-                            <p class="fs-5 lead" id="modelViewInWorkDateEnd" style="text-align: center;margin-top: 10px;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-yellow);">&nbsp;Передано заказчику:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">23.11.2024</span></p>
+                            <p class="text-center" style="margin-top: 10px;margin-bottom: 0px;"><i class="fas fa-dolly" style="color: var(--bs-yellow);font-size: 20px;"></i></p>
+                            <p class="fs-5 lead" id="modelViewInWorkDateEnd" style="text-align: center;font-family: 'Abril Fatface', serif;margin-bottom: 0px;color: var(--bs-modal-bg);margin-top: -5px;">&nbsp;&nbsp;Передано заказчику:&nbsp;&nbsp;<span class="fs-5" style="font-family: 'Abril Fatface', serif;">-</span></p>
                             <div class="table-responsive text-center">
                                 <table class="table">
                                     <thead class="text-truncate">
@@ -95,18 +129,18 @@
                                     <tbody>
                                         <tr class="text-break">
                                             <td class="text-break text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Сотрудник</td>
-                                            <td class="text-break" id="modelViewMemberEnd" style="color: var(--bs-modal-bg);">Жгулев А И</td>
-                                            <td class="text-break" id="modelViewDealerEnd" style="color: var(--bs-modal-bg);">Куколдов Б А</td>
+                                            <td class="text-break" id="modelViewMemberEnd" style="color: var(--bs-modal-bg);">-</td>
+                                            <td class="text-break" id="modelViewDealerEnd" style="color: var(--bs-modal-bg);">-</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Отдел</td>
-                                            <td id="modelViewSubdivisionMemberEnd" style="color: var(--bs-modal-bg);">25</td>
-                                            <td id="modelViewSubdivisionDealerEnd" style="color: var(--bs-modal-bg);">13</td>
+                                            <td id="modelViewSubdivisionMemberEnd" style="color: var(--bs-modal-bg);">-</td>
+                                            <td id="modelViewSubdivisionDealerEnd" style="color: var(--bs-modal-bg);">-</td>
                                         </tr>
                                         <tr>
                                             <td class="text-start" style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Управление</td>
-                                            <td id="modelViewDepartmentMemberEnd" style="color: var(--bs-modal-bg);">Т</td>
-                                            <td id="modelViewDepartmentDealerEnd" style="color: var(--bs-modal-bg);">М</td>
+                                            <td id="modelViewDepartmentMemberEnd" style="color: var(--bs-modal-bg);">-</td>
+                                            <td id="modelViewDepartmentDealerEnd" style="color: var(--bs-modal-bg);">-</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -115,7 +149,10 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="fs-3" style="text-align: center;color: var(--bs-yellow);font-family: 'Abril Fatface', serif;margin-bottom: 1px;">Состав изделия</p>
+                            <p class="fs-3" style="text-align: center;color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;margin-bottom: 1px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="color: var(--bs-yellow);font-size: 25px;">
+                                    <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M232.5 5.171C247.4-1.718 264.6-1.718 279.5 5.171L498.1 106.2C506.6 110.1 512 118.6 512 127.1C512 137.3 506.6 145.8 498.1 149.8L279.5 250.8C264.6 257.7 247.4 257.7 232.5 250.8L13.93 149.8C5.438 145.8 0 137.3 0 127.1C0 118.6 5.437 110.1 13.93 106.2L232.5 5.171zM498.1 234.2C506.6 238.1 512 246.6 512 255.1C512 265.3 506.6 273.8 498.1 277.8L279.5 378.8C264.6 385.7 247.4 385.7 232.5 378.8L13.93 277.8C5.438 273.8 0 265.3 0 255.1C0 246.6 5.437 238.1 13.93 234.2L67.13 209.6L219.1 279.8C242.5 290.7 269.5 290.7 292.9 279.8L444.9 209.6L498.1 234.2zM292.9 407.8L444.9 337.6L498.1 362.2C506.6 366.1 512 374.6 512 383.1C512 393.3 506.6 401.8 498.1 405.8L279.5 506.8C264.6 513.7 247.4 513.7 232.5 506.8L13.93 405.8C5.438 401.8 0 393.3 0 383.1C0 374.6 5.437 366.1 13.93 362.2L67.13 337.6L219.1 407.8C242.5 418.7 269.5 418.7 292.9 407.8V407.8z"></path>
+                                </svg>&nbsp;Состав изделия</p>
                             <div class="table-responsive text-center">
                                 <table class="table" id="tableDescription">
                                     <thead class="text-truncate">
@@ -126,154 +163,134 @@
                                             <th style="color: var(--bs-modal-bg);font-family: 'Abril Fatface', serif;">Примичание</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="text-break">
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">Самое страшное и большое изделие которое может быть на свете</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">032320909903434</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">4309309430434343</td>
-                                            <td class="text-break" style="color: var(--bs-modal-bg);">sjkjhfdkfjdksjfksdjfkldsjfkjdsklfjdskljfksdjfkdsjfkldsjlfjdksljfkdsjfkljsdfkjdskfjksdjfksjdfkljdsklfjdsklfjkdsjfklsdjfklsdjfkldsjfkljsdlkfjsdklfjdsklfj</td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer" style="background: #212529;position: static;"><a class="btn btn-secondary" role="button" data-bs-target="#modal-4" data-bs-toggle="modal" style="font-family: 'Noto Sans', sans-serif;background: var(--bs-border-color-translucent);"><i class="far fa-edit" style="color: var(--bs-red);"></i>&nbsp;Редактировать</a><button class="btn btn-secondary" type="button" data-bs-dismiss="modal" style="background: var(--bs-border-color-translucent);font-family: 'Noto Sans', sans-serif;"><i class="far fa-window-close" style="color: var(--bs-green);"></i>&nbsp;Закрыть</button></div>
+                <div class="modal-footer" style="background: #212529;position: static;"><a class="btn btn-secondary" role="button" id="openEdit" data-bs-target="#ModelEditing" data-bs-toggle="modal" style="font-family: 'Noto Sans', sans-serif;background: var(--bs-border-color-translucent);"><i class="far fa-edit" style="color: var(--bs-red);"></i>&nbsp;Редактировать</a><button class="btn btn-secondary" type="button" data-bs-dismiss="modal" style="background: var(--bs-border-color-translucent);font-family: 'Noto Sans', sans-serif;"><i class="far fa-window-close" style="color: var(--bs-green);"></i>&nbsp;Закрыть</button></div>
             </div>
         </div>
     </div>
-    <div class="modal fade" role="dialog" tabindex="-1" id="modal-4">
+    <div class="modal fade" role="dialog" tabindex="-1" id="ModelEditing">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body" style="background: rgb(45,44,56);">
                     <div>
                         <div class="border rounded border-warning" style="text-align: center;">
                             <h1 class="fs-2 text-center display-5 fw-bold lh-1 mb-3" style="font-family: 'Abril Fatface', serif;margin-bottom: 2px;padding-bottom: 0px;margin-top: 14px;color: var(--bs-modal-bg);"><i class="far fa-edit" style="font-size: 28px;color: var(--bs-yellow);"></i>&nbsp;Редактирование модели</h1>
-                            <h1 class="fs-2 text-center display-5 fw-bold lh-1 mb-3" style="font-family: 'Abril Fatface', serif;margin-bottom: 2px;padding-bottom: 0px;margin-top: 14px;color: var(--bs-modal-bg);">&nbsp;№ 001488</h1>
+                            <h1 class="fs-2 text-center display-5 fw-bold lh-1 mb-3" id="ModelEditingNumber" style="font-family: 'Abril Fatface', serif;margin-bottom: 2px;padding-bottom: 0px;margin-top: 14px;color: var(--bs-modal-bg);">&nbsp;№</h1>
                         </div>
                         <div>
                             <div class="row" style="margin-top: 6px;">
                                 <div class="col">
                                     <form>
-                                        <div class="field"><select class="form-select" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;">
+                                        <div class="field"><select class="form-select" id="ModelEditingDeviceType" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;">
                                                 <optgroup label="Типы устройств">
+                                                    <option value="0">Аудио</option>
                                                     <option value="1" selected="">Фото</option>
                                                     <option value="2">Видео</option>
-                                                    <option value="3">Аудио</option>
-                                                    <option value="4">Иное</option>
+                                                    <option value="3">Иное</option>
                                                 </optgroup>
                                             </select><label class="form-label text-center mb-0" for="float-input" style="margin-bottom: 8px;margin-top: 7px;font-size: 19px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">Тип устройства</label></div>
                                     </form>
                                 </div>
                                 <div class="col" style="font-family: 'Noto Sans', sans-serif;">
                                     <form>
-                                        <div class="field"><select class="form-select" id="reason" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;">
+                                        <div class="field"><select class="form-select" id="ModelEditingReason" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;">
                                                 <optgroup label="Виды оснований">
-                                                    <option value="1" selected="">Журнал</option>
-                                                    <option value="2">Служебная записка</option>
-                                                    <option value="3">Иное</option>
+                                                    <option value="0" selected="">Журнал</option>
+                                                    <option value="1">Служебная записка</option>
+                                                    <option value="2">Иное</option>
                                                 </optgroup>
                                             </select><label class="form-label text-center mb-0" for="float-input" style="margin-top: 7px;font-size: 19px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">Основание проведения работ</label></div>
                                     </form>
                                     <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: 8px;">
                                         <div class="form-group mb-3" style="margin-top: 23px;">
-                                            <div class="input-group mb-4"><input class="form-control" type="text" id="reasonNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: var(--bs-border-color-translucent);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 19px;margin-left: 1px;border-radius: 6px;"></div>
+                                            <div class="input-group mb-4"><input class="form-control" type="text" id="ModelEditingReasonNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 19px;margin-left: 1px;border-radius: 6px;"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div style="margin-top: -39px;">
-                                <p class="fs-3 text-center" style="margin-top: 43px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 6px;">Передал материальные ценности исполнителю</p>
+                                <p class="text-center" style="margin-top: 40px;margin-bottom: -26px;">P</p>
+                                <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 6px;padding-top: 0px;margin-top: 16px;">&nbsp;<i class="fas fa-people-carry" style="color: var(--bs-yellow);font-size: 25px;margin-left: 0px;"></i>&nbsp;Передал материальные ценности исполнителю</p>
                                 <div class="row" style="margin-top: 0px;margin-bottom: 0px;">
                                     <div class="col-5 text-center"><label class="form-label text-center mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Сотрудник</label>
                                         <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: -10px;">
                                             <form>
                                                 <div class="form-group mb-3" style="margin-top: 23px;">
-                                                    <div class="input-group mb-4"><input class="form-control" type="text" id="datePickerTo-4" style="font-family: 'Abril Fatface', serif;text-align: left;background: var(--bs-border-color-translucent);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 16px;margin-left: 1px;border-radius: 6px;" placeholder="ФИО"></div>
+                                                    <div class="input-group mb-4"><input class="form-control" type="text" id="ModelEditingNameBegin" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 16px;margin-left: 1px;border-radius: 6px;" placeholder="ФИО"></div>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                     <div class="col-2 text-center">
                                         <form>
-                                            <div class="field"><select class="form-select" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
+                                            <div class="field"><select class="form-select" id="ModelEditingSubdivisionBegin" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
                                                     <optgroup label="Отделы">
-                                                        <option value="1" selected="">23</option>
-                                                        <option value="2">26</option>
-                                                        <option value="3">27</option>
+                                                        <option value="23" selected="">23</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
                                                     </optgroup>
                                                 </select><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Отдел</label></div>
                                         </form>
                                     </div>
                                     <div class="col-2 text-center">
                                         <form>
-                                            <div class="field"><select class="form-select" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
+                                            <div class="field"><select class="form-select" id="ModelEditingDepartmentBegin" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
                                                     <optgroup label="Управления">
-                                                        <option value="1" selected="">У</option>
-                                                        <option value="2">М</option>
-                                                        <option value="3">Н</option>
+                                                        <option value="У" selected="">У</option>
+                                                        <option value="М">М</option>
+                                                        <option value="Н">Н</option>
                                                     </optgroup>
                                                 </select><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Управление</label></div>
                                         </form>
                                     </div>
                                     <div class="col-3 text-center">
-                                        <div class="field"><input class="form-control-sm" type="date" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 21px;margin-top: 0px;border-width: 1px;border-color: var(--bs-modal-bg);"><label class="form-label mb-0" for="float-input" style="font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);">Дата</label></div>
+                                        <div class="field"><input class="form-control-sm" id="ModelEditingDateBegin" type="date" style="background: rgb(45,44,56);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 21px;margin-top: 0px;border-width: 1px;border-color: var(--bs-modal-bg);"><label class="form-label mb-0" for="float-input" style="font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);">Дата</label></div>
                                     </div>
                                 </div>
-                                <div>
-                                    <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 6px;margin-top: 1px;">Принял материальные ценности у исполнителя</p>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 0px;margin-bottom: 0px;">
-                                <div class="col-5 text-center"><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Сотрудник</label>
-                                    <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: -10px;">
-                                        <form>
-                                            <div class="form-group mb-3" style="margin-top: 23px;">
-                                                <div class="input-group mb-4"><input class="form-control" type="text" id="datePickerTo-5" style="font-family: 'Abril Fatface', serif;text-align: left;background: var(--bs-border-color-translucent);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 16px;margin-left: 1px;border-radius: 6px;" placeholder="ФИО"></div>
-                                            </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <p style="padding-bottom: 0px;margin-bottom: -1px;font-family: 'Noto Sans', sans-serif;margin-top: 1px;padding-top: 9px;color: var(--bs-modal-bg);"><i class="far fa-clock text-center" style="color: var(--bs-yellow);font-size: 20px;margin-bottom: 5px;"></i>&nbsp;Напоминание</p>
+                                        <form style="margin-right: 16px;"><input class="form-control form-control-sm" id="ModelEditingNotification" type="date" style="background: rgb(45,44,56);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;border-radius: 6px;font-size: 21px;border-width: 1px;border-color: var(--bs-modal-bg);padding-bottom: 5px;margin-bottom: 10px;margin-top: 10px;margin-left: 3px;height: 41.5px;"></form>
+                                    </div>
+                                    <div class="col text-center">
+                                        <p style="padding-bottom: 0px;margin-bottom: -1px;font-family: 'Noto Sans', sans-serif;margin-top: 1px;padding-top: 9px;margin-right: 23px;color: var(--bs-modal-bg);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="text-center" style="color: var(--bs-yellow);font-size: 20px;margin-bottom: 5px;">
+                                                <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                                <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+                                            </svg>&nbsp;Материальные ценности принял</p>
+                                        <form style="margin-right: 16px;">
+                                            <div class="field"><select class="form-select" id="ModelEditingMemberBegin" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;margin-top: 10px;">
+                                                    <optgroup label="Сотрудники">
+                                                        <option value="Кострюков" selected="">Кострюков</option>
+                                                        <option value="Лобанов">Лобанов</option>
+                                                        <option value="Жгулев">Жгулев</option>
+                                                        <option value="Жмышенко">Жмышенко</option>
+                                                    </optgroup>
+                                                </select></div>
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-2 text-center">
-                                    <form>
-                                        <div class="field"><select class="form-select" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
-                                                <optgroup label="Отделы">
-                                                    <option value="1" selected="">23</option>
-                                                    <option value="2">26</option>
-                                                    <option value="3">27</option>
-                                                </optgroup>
-                                            </select><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Отдел</label></div>
-                                    </form>
-                                </div>
-                                <div class="col-2 text-center">
-                                    <form>
-                                        <div class="field"><select class="form-select" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
-                                                <optgroup label="Управления">
-                                                    <option value="1" selected="">У</option>
-                                                    <option value="2">М</option>
-                                                    <option value="3">Н</option>
-                                                </optgroup>
-                                            </select><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Управление</label></div>
-                                    </form>
-                                </div>
-                                <div class="col-3">
-                                    <div class="field"><input class="form-control-sm" type="date" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 21px;margin-top: 0px;border-width: 1px;border-color: var(--bs-modal-bg);"><label class="form-label mb-0" for="float-input" style="font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);">Дата</label></div>
-                                </div>
                             </div>
-                            <legend class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);padding-top: 0px;padding-bottom: 4px;margin-top: 0px;margin-bottom: -10px;">Состав изделия</legend>
-                            <div id="device">
-                                <div class="row" id="deviceRow" style="margin-top: 1px;margin-bottom: 31px;">
+                            <legend class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);padding-top: 0px;padding-bottom: 4px;margin-top: 0px;margin-bottom: -10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="color: var(--bs-yellow);font-size: 25px;">
+                                    <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M232.5 5.171C247.4-1.718 264.6-1.718 279.5 5.171L498.1 106.2C506.6 110.1 512 118.6 512 127.1C512 137.3 506.6 145.8 498.1 149.8L279.5 250.8C264.6 257.7 247.4 257.7 232.5 250.8L13.93 149.8C5.438 145.8 0 137.3 0 127.1C0 118.6 5.437 110.1 13.93 106.2L232.5 5.171zM498.1 234.2C506.6 238.1 512 246.6 512 255.1C512 265.3 506.6 273.8 498.1 277.8L279.5 378.8C264.6 385.7 247.4 385.7 232.5 378.8L13.93 277.8C5.438 273.8 0 265.3 0 255.1C0 246.6 5.437 238.1 13.93 234.2L67.13 209.6L219.1 279.8C242.5 290.7 269.5 290.7 292.9 279.8L444.9 209.6L498.1 234.2zM292.9 407.8L444.9 337.6L498.1 362.2C506.6 366.1 512 374.6 512 383.1C512 393.3 506.6 401.8 498.1 405.8L279.5 506.8C264.6 513.7 247.4 513.7 232.5 506.8L13.93 405.8C5.438 401.8 0 393.3 0 383.1C0 374.6 5.437 366.1 13.93 362.2L67.13 337.6L219.1 407.8C242.5 418.7 269.5 418.7 292.9 407.8V407.8z"></path>
+                                </svg>&nbsp;Состав изделия</legend>
+                            <div id="deviceEdit">
+                                <div class="row" id="deviceRowEdit" style="margin-top: 1px;margin-bottom: 31px;">
                                     <div class="col-2">
                                         <p class="fs-1" id="rowNumber" style="margin-bottom: 6px;font-family: 'Kaushan Script', serif;color: var(--bs-yellow);margin-top: 95px;">1</p>
                                     </div>
                                     <div class="col-lg-8" style="border-radius: 6px;border: 1px solid var(--bs-modal-bg);margin-top: 9px;">
                                         <div>
                                             <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-1" style="font-family: 'Abril Fatface', serif;text-align: left;background: var(--bs-border-color-translucent);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 16px;" placeholder="Наименование устройства"></div>
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-2" style="font-family: 'Abril Fatface', serif;text-align: left;background: var(--bs-border-color-translucent);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 5px;margin-bottom: -8px;" placeholder="Серийный номер устройства"></div>
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-3" style="font-family: 'Abril Fatface', serif;text-align: left;background: var(--bs-border-color-translucent);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 7px;padding-bottom: 10px;margin-bottom: -8px;" placeholder="Инвентарный номер устройства"></div>
-                                                <div class="form-group mb-3"><textarea class="form-control" placeholder="Примичание" style="background: var(--bs-border-color-translucent);margin-top: 17px;border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);"></textarea></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-1" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 16px;" placeholder="Наименование устройства"></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-2" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 5px;margin-bottom: -8px;" placeholder="Серийный номер устройства"></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-3" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 7px;padding-bottom: 10px;margin-bottom: -8px;" placeholder="Инвентарный номер устройства"></div>
+                                                <div class="form-group mb-3"><textarea class="form-control" placeholder="Примечание" style="background: rgb(45,44,56);margin-top: 17px;border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);"></textarea></div>
                                             </form>
                                         </div>
                                     </div>
@@ -288,36 +305,105 @@
                                     <div class="col-2 col-xl-3 text-center" style="padding-top: 0px;margin-top: -15px;">
                                         <div class="field"></div>
                                     </div>
-                                    <div class="col-6 col-lg-7 col-xl-6 text-center" style="margin-top: -14px;"><button class="btn btn-secondary" id="add" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button><button class="btn btn-secondary" id="del" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-trash" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Удалить ячейку</button></div>
+                                    <div class="col-6 col-lg-7 col-xl-6 text-center" style="margin-top: -14px;"><button class="btn btn-secondary" id="ModelEditingAdd" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button><button class="btn btn-secondary" id="ModelEditingDel" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-trash" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Удалить ячейку</button></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="border rounded" style="margin-top: 33px;">
-                        <div class="row">
-                            <div class="col text-center">
-                                <p style="padding-bottom: 0px;margin-bottom: -1px;font-family: 'Noto Sans', sans-serif;margin-top: 1px;padding-top: 9px;color: var(--bs-modal-bg);"><i class="far fa-clock text-center" style="color: var(--bs-yellow);font-size: 20px;margin-bottom: 5px;"></i>&nbsp;Установить напоминание</p><input class="form-control-sm" type="date" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 20px;border-width: 1px;border-color: var(--bs-modal-bg);padding-bottom: 5px;margin-bottom: 10px;margin-top: 10px;">
+                        <div>
+                            <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 6px;margin-top: 12px;">&nbsp;<i class="fas fa-dolly" style="color: var(--bs-yellow);font-size: 25px;"></i>&nbsp;Принял материальные ценности у исполнителя</p>
+                        </div>
+                        <div class="row" style="margin-top: 0px;margin-bottom: 0px;">
+                            <div class="col-5 text-center"><label class="form-label text-center mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Сотрудник</label>
+                                <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: -10px;">
+                                    <form>
+                                        <div class="form-group mb-3" style="margin-top: 23px;margin-left: 10px;">
+                                            <div class="input-group mb-4"><input class="form-control" type="text" id="ModelEditingDealerEnd" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 16px;border-radius: 6px;margin-left: 4px;" placeholder="ФИО"></div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+                            <div class="col-2 text-center">
+                                <form>
+                                    <div class="field"><select class="form-select" id="ModelEditingSubdivisionEnd" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
+                                            <optgroup label="Отделы">
+                                                <option value="23" selected="">23</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                            </optgroup>
+                                        </select><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Отдел</label></div>
+                                </form>
+                            </div>
+                            <div class="col-2 text-center">
+                                <form>
+                                    <div class="field"><select class="form-select" id="ModelEditingDepartmentEnd" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;">
+                                            <optgroup label="Управления">
+                                                <option value="У" selected="">У</option>
+                                                <option value="М">М</option>
+                                                <option value="Н">Н</option>
+                                            </optgroup>
+                                        </select><label class="form-label mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Управление</label></div>
+                                </form>
+                            </div>
+                            <div class="col-3">
+                                <div class="field" style="margin-right: 15px;"><input class="form-control-sm" id="ModelEditingDateEnd" type="date" style="background: rgb(45,44,56);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 21px;margin-top: 0px;border-width: 1px;border-color: var(--bs-modal-bg);margin-right: 2px;"><label class="form-label text-center mb-0" for="float-input" style="font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);">Дата</label></div>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col text-center">
                                 <p style="padding-bottom: 0px;margin-bottom: -1px;font-family: 'Noto Sans', sans-serif;margin-top: 1px;padding-top: 9px;margin-right: 23px;color: var(--bs-modal-bg);"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="text-center" style="color: var(--bs-yellow);font-size: 20px;margin-bottom: 5px;">
                                         <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
                                         <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
                                     </svg>&nbsp;Материальные ценности передал</p>
-                                <form style="margin-right: 16px;">
-                                    <div class="field"><select class="form-select" style="background: var(--bs-border-color-translucent);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;margin-top: 10px;">
-                                            <optgroup label="Сотрудники">
-                                                <option value="1" selected="">Кострюков</option>
-                                                <option value="2">Лобанов</option>
-                                                <option value="3">Жгулев</option>
-                                                <option value="4">Жмышенко</option>
-                                            </optgroup>
-                                        </select></div>
-                                </form>
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col">
+                                        <form style="margin-right: 16px;">
+                                            <div class="field" style="margin-left: 14px;margin-right: 1px;"><select class="form-select" id="ModelEditingMemberEnd" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;margin-top: 10px;margin-left: 0px;margin-right: 0px;">
+                                                    <optgroup label="Сотрудники">
+                                                        <option value="Кострюков" selected="">Кострюков</option>
+                                                        <option value="Лобанов">Лобанов</option>
+                                                        <option value="Жгулев">Жгулев</option>
+                                                        <option value="Жмышенко">Жмышенко</option>
+                                                    </optgroup>
+                                                </select></div>
+                                        </form>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="border rounded" style="margin-top: 33px;">
+                        <div style="margin-left: 11px;">
+                            <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);padding-top: 0px;margin-top: 5px;margin-bottom: 0px;">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512" width="1em" height="1em" fill="currentColor" style="color: var(--bs-yellow);font-size: 25px;">
+                                    <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+                                    <path d="M364.2 83.8C339.8 59.39 300.2 59.39 275.8 83.8L91.8 267.8C49.71 309.9 49.71 378.1 91.8 420.2C133.9 462.3 202.1 462.3 244.2 420.2L396.2 268.2C407.1 257.3 424.9 257.3 435.8 268.2C446.7 279.1 446.7 296.9 435.8 307.8L283.8 459.8C219.8 523.8 116.2 523.8 52.2 459.8C-11.75 395.8-11.75 292.2 52.2 228.2L236.2 44.2C282.5-2.08 357.5-2.08 403.8 44.2C450.1 90.48 450.1 165.5 403.8 211.8L227.8 387.8C199.2 416.4 152.8 416.4 124.2 387.8C95.59 359.2 95.59 312.8 124.2 284.2L268.2 140.2C279.1 129.3 296.9 129.3 307.8 140.2C318.7 151.1 318.7 168.9 307.8 179.8L163.8 323.8C157.1 330.5 157.1 341.5 163.8 348.2C170.5 354.9 181.5 354.9 188.2 348.2L364.2 172.2C388.6 147.8 388.6 108.2 364.2 83.8V83.8z"></path>
+                                </svg>&nbsp;Заметки</p>
+                            <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
+                                <div class="form-group mb-3" style="margin-right: 14px;margin-left: 14px;"><textarea class="form-control" id="ModelEditingNote" placeholder="Поле для заметок или примечаний" style="background: rgb(45,44,56);border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);margin-top: -10px;padding-right: 4px;margin-left: 0px;margin-right: 0px;"></textarea></div>
+                            </form>
+                            <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);padding-top: 0px;margin-top: 5px;margin-bottom: 0px;"><i class="fas fa-cogs" style="color: var(--bs-yellow);font-size: 25px;"></i>&nbsp;Статус изготовления</p>
+                            <div class="row">
+                                <div class="col-2"></div>
+                                <div class="col">
+                                    <form>
+                                        <div class="field" style="margin-left: 14px;margin-right: 14px;"><select class="form-select" id="ModelEditingDone" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-family: 'Abril Fatface', serif;font-size: 20px;margin-left: 0px;margin-right: 0px;">
+                                                <optgroup label="Статус изготовления">
+                                                    <option value="0" selected="">В работе</option>
+                                                    <option value="1">Завершена</option>
+                                                </optgroup>
+                                            </select></div>
+                                    </form>
+                                </div>
+                                <div class="col-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="files color form-group mb-3"><input type="file" multiple="" name="files" style="background: var(--bs-border-color-translucent);"></div>
                 </div>
-                <div class="modal-footer text-center" style="background: rgb(45,44,56);border-width: 1px;"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal" style="background: var(--bs-border-color-translucent);"><i class="far fa-window-close" style="color: var(--bs-red);"></i>&nbsp;Закрыть</button><button class="btn btn-secondary" type="button" data-bs-toggle="modal" style="background: var(--bs-border-color-translucent);" data-bs-target="#modal-2"><i class="fas fa-save" style="color: var(--bs-warning);"></i>&nbsp;Сохранить</button></div>
+                <div class="modal-footer text-center" style="background: rgb(45,44,56);border-width: 1px;"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal" style="background: var(--bs-border-color-translucent);"><i class="far fa-window-close" style="color: var(--bs-red);"></i>&nbsp;Закрыть</button><button class="btn btn-secondary" id="ModelEditingSave" type="button" data-bs-toggle="modal" style="background: var(--bs-border-color-translucent);" data-bs-target="#modal-2"><i class="fas fa-save" style="color: var(--bs-warning);"></i>&nbsp;Сохранить</button></div>
             </div>
         </div>
     </div>
@@ -344,13 +430,7 @@
                 <div class="input-group"><input class="form-control autocomplete" type="text" placeholder="Поиск по номеру карточки"><button class="btn btn-warning" type="button"><i class="fa fa-search"></i></button></div>
             </div>
         </div>
-        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" id="modelRows">
-            <div class="col">
-                <div>
-                    <div class="py-4"><button class="btn btn-light text-center" type="button" style="margin-left: -1px;font-size: 41px;background: var(--bs-border-color-translucent);"><img class="rounded img-fluid border-warning fit-cover" style="height: 200px;" src="../assets/img/12699.30_3_500.jpg" width="431" height="200"><span style="color: var(--bs-white);font-family: 'Abril Fatface', serif;font-size: 33px;">Модель № 001488</span></button></div>
-                </div>
-            </div>
-        </div>
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" id="modelRows"></div>
     </div>
     <footer class="text-center bg-dark">
         <div class="container text-white py-4 py-lg-5" style="height: 100px;">
@@ -373,11 +453,13 @@
     <script src="../assets/js/addModelService.js"></script>
     <script src="../assets/js/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.js"></script>
     <script src="../assets/js/DateRangePicker-My-Date-Picker.js"></script>
+    <script src="../assets/js/Drag-and-Drop-File-Input-Drag-And-Drop-Image.js"></script>
     <script src="../assets/js/Drag-and-Drop-Multiple-File-Form-Input-upload-Advanced-drop.js"></script>
     <script src="../assets/js/Dynamically-Add-Remove-Table-Row-style.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="../assets/js/modelEditing.js"></script>
     <script src="../assets/js/modelView.js"></script>
     <script src="../assets/js/MUSA_product-display-product-display.js"></script>
 </body>
