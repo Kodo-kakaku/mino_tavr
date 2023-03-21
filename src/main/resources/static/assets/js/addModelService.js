@@ -86,12 +86,8 @@ function delWriteRow() {
 }
 
 document.getElementById('reason').addEventListener('change', function (e) {
-    var number = document.getElementById('reasonNumber');
-    if (e.target.value == 2) {
-        number.style.display = "none";
-    } else {
-        number.style.display = "block";
-    }
+    let number = document.getElementById('reasonNumber');
+    number.style.display = e.target.value == 2 ? "none" : "block";
 });
 
 document.getElementById("addButton").addEventListener("click", async () => {

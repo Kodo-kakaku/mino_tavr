@@ -7,19 +7,14 @@ async function sendRequest(url, method) {
             return response.status;
         })
 }
+
 document.getElementById('ModelEditingReason').addEventListener('change', function (e) {
-    var number = document.getElementById('ModelEditingReasonNumber');
-    if (e.target.value == 2) {
-        number.style.display = "none";
-    } else {
-        number.style.display = "block";
-    }
+    let number = document.getElementById('ModelEditingReasonNumber');
+    number.style.display = e.target.value == 2 ? "none" : "block";
 });
 
-
-
 function addEditRows(descriptions) {
-    for(let i = 0; i < descriptions.length - 1; i++) {
+    for (let i = 0; i < descriptions.length - 1; i++) {
         let newDeviceRow = document.getElementById("deviceRowEdit").cloneNode(true);
         document.getElementById("deviceEdit").appendChild(newDeviceRow);
     }
@@ -42,7 +37,7 @@ window.addEventListener("load", async () => {
     const type = document.getElementById("modelType");
     const resp = sendRequest("/manufacture/models/" + type.innerHTML, 'GET')
         .then((result) => {
-            for(let i of result) {
+            for (let i of result) {
                 let modelSpanNumber = document.createElement("span");
                 modelSpanNumber.style = "color: var(--bs-white);font-family: 'Abril Fatface', serif;font-size: 33px;";
                 modelSpanNumber.innerHTML = "Модель № " + i.id;
@@ -63,7 +58,7 @@ window.addEventListener("load", async () => {
                 modelButton.setAttribute('type', "button");
                 modelButton.setAttribute('id', "modalView");
                 modelButton.style = "margin-left: -1px;font-size: 41px;background: var(--bs-border-color-translucent);";
-                modelButton.onclick = function() {
+                modelButton.onclick = function () {
                     sendRequest("/manufacture/" + i.id, "GET").then((result) => {
                         $('#modalViewModel').modal('show');
                         document.getElementById('modelViewNumber').innerHTML = "№ " + result.id;
@@ -76,7 +71,7 @@ window.addEventListener("load", async () => {
                         document.getElementById('modelViewReasonNumber').innerHTML =
                             result.reason === 2 ? "-" : ("\"" + result.reasonNumber + "\"");
 
-                        if(result.note !== null) {
+                        if (result.note !== null) {
                             document.getElementById('ModelViewNote').innerHTML = result.note;
                         }
 
@@ -84,30 +79,29 @@ window.addEventListener("load", async () => {
                         document.getElementById('modelViewMemberBegin').innerHTML = result.interactionBegin.member.name;
                         document.getElementById('modelViewSubdivisionMemberBegin').innerHTML = result.interactionBegin.member.subdivision;
                         document.getElementById('modelViewDepartmentMemberBegin').innerHTML = result.interactionBegin.member.department;
-                        
+
                         document.getElementById('modelViewDealerBegin').innerHTML = result.interactionBegin.dealer.name;
                         document.getElementById('modelViewSubdivisionDealerBegin').innerHTML = result.interactionBegin.dealer.subdivision;
                         document.getElementById('modelViewDepartmentDealerBegin').innerHTML = result.interactionBegin.dealer.department;
-                        
-                        
+
+
                         document.getElementById('modelViewInWorkDateEnd').innerHTML = "Передано заказчику: " + result.interactionEnd.date;
                         document.getElementById('modelViewMemberEnd').innerHTML = result.interactionEnd.member.name;
                         document.getElementById('modelViewSubdivisionMemberEnd').innerHTML = result.interactionEnd.member.subdivision;
                         document.getElementById('modelViewDepartmentMemberEnd').innerHTML = result.interactionEnd.member.department;
-                        
+
                         document.getElementById('modelViewDealerEnd').innerHTML = result.interactionEnd.dealer.name;
                         document.getElementById('modelViewSubdivisionDealerEnd').innerHTML = result.interactionEnd.dealer.subdivision;
                         document.getElementById('modelViewDepartmentDealerEnd').innerHTML = result.interactionEnd.dealer.department;
-                        
-                        document.getElementById('imageModelView').src = "data:image/jpeg;base64," + result.image;
 
+                        document.getElementById('imageModelView').src = "data:image/jpeg;base64," + result.image;
 
 
                         $("#tableDescription").find("tr:gt(0)").remove();
 
                         const table = document.getElementById('tableDescription');
                         let tableBody = table.getElementsByTagName('tbody')[0];
-                        for(let description of result.descriptions) {
+                        for (let description of result.descriptions) {
                             let newRow = tableBody.insertRow();
                             newRow.className = "text-break";
 
@@ -148,7 +142,7 @@ window.addEventListener("load", async () => {
                         document.getElementById('ModelEditingDepartmentBegin').value = result.interactionBegin.dealer.department;
                         document.getElementById('ModelEditingDateBegin').value = result.interactionBegin.date;
 
-                        if(result.notification !== null) {
+                        if (result.notification !== null) {
                             document.getElementById('ModelEditingNotification').value = result.notification;
                         }
                         document.getElementById('ModelEditingMemberBegin').value = result.interactionBegin.member.name;
@@ -158,7 +152,7 @@ window.addEventListener("load", async () => {
 
                         let i = 8;
                         const forms = document.getElementsByTagName("form");
-                        for(let description of result.descriptions) {
+                        for (let description of result.descriptions) {
                             forms[i].elements[0].value = description.device;
                             forms[i].elements[1].value = description.serialNumber;
                             forms[i].elements[2].value = description.inventoryNumber;
@@ -168,7 +162,7 @@ window.addEventListener("load", async () => {
 
                         document.getElementById('ModelEditingNote').value = result.note;
 
-                        if(result.done) {
+                        if (result.done) {
                             document.getElementById('ModelEditingDealerEnd').value = result.interactionEnd.dealer.name;
                             document.getElementById('ModelEditingSubdivisionEnd').value = result.interactionEnd.dealer.subdivision;
                             document.getElementById('ModelEditingDepartmentEnd').value = result.interactionEnd.dealer.department;
@@ -203,3 +197,10 @@ window.addEventListener("load", async () => {
             }
         });
 });
+
+document.getElementById('ModelEditingSave').addEventListener('click', async () => {
+    const forms = document.getElementsByTagName("form");
+    console.log("popo");
+    console.log(forms);
+});
+
