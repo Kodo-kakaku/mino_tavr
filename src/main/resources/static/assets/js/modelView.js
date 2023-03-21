@@ -10,7 +10,11 @@ async function sendRequest(url, method) {
 
 document.getElementById('ModelEditingReason').addEventListener('change', function (e) {
     let number = document.getElementById('ModelEditingReasonNumber');
-    number.style.display = e.target.value == 2 ? "none" : "block";
+    if (e.target.value === '2') {
+        number.style.display = "none";
+    } else {
+        number.style.display = "block";
+    }
 });
 
 function addEditRows(descriptions) {
@@ -26,7 +30,6 @@ function addEditRows(descriptions) {
 
 function removeEditRows() {
     const descriptionRows = document.getElementsByClassName("row");
-    console.log(descriptionRows);
     for (let i = descriptionRows.length - 8; i > 9; i--) {
         descriptionRows[i].remove();
     }
@@ -198,9 +201,85 @@ window.addEventListener("load", async () => {
         });
 });
 
+function addErrorField(form, inner) {
+    var error = document.createElement('div');
+    error.className = 'error';
+    error.style = "text-align: center;color: red;";
+    error.innerHTML = inner;
+    form.parentElement.insertBefore(error, form.nextSibling);
+}
+
+function removeValidation() {
+    const errors = document.querySelectorAll('.error');
+    errors.forEach(error => {
+        error.remove();
+    });
+}
+
+function checkFormValidation(forms) {
+    let errorFlag = false;
+    for (let i = 1; i < forms.length - 6; i++) {
+        if (forms[i].elements[0].value === "") {
+            addErrorField(forms[i], "Заполните поле!");
+            errorFlag = true;
+        }
+    }
+    return errorFlag;
+}
+
 document.getElementById('ModelEditingSave').addEventListener('click', async () => {
     const forms = document.getElementsByTagName("form");
-    console.log("popo");
-    console.log(forms);
+    removeValidation();
+    if (checkFormValidation(forms)) {
+        // TODO Fix save button, clear "P" on UI editing form, add server part to edit sql, text form fix!
+        return;
+    }
+
+    let id = document.getElementById('modelViewNumber').innerHTML;
+    id = id.substring(2, id.length);
+
+    let descriptionsEdit = [];
+    for (let i = 8; i < forms.length - 6; i++) {
+        descriptionsEdit.push(Object.fromEntries(new Map([
+            ["device", forms[i].elements[0].value],
+            ["serialNumber", forms[i].elements[1].value],
+            ["inventoryNumber", forms[i].elements[2].value],
+            ["remark", forms[i].elements[3].value]
+        ])));
+    }
+
+    let dealerBegin = new Map([
+        ["name", forms[3].elements[0].value],
+        ["subdivision", forms[4].elements[0].value],
+        ["department", forms[5].elements[0].value]
+    ]);
+
+    let dealerEnd = new Map([
+        ["name", forms[10].elements[0].value],
+        ["subdivision", forms[11].elements[0].value],
+        ["department", forms[12].elements[0].value]
+    ]);
+
+    // TODO Fix form ReasonNumber
+    let postRequestObj = new Map;
+    postRequestObj.set("id", Number(id));
+    postRequestObj.set("deviceType", forms[1].elements[0].value);
+    postRequestObj.set("reason", forms[2].elements[0].value);
+    postRequestObj.set("reasonNumber", forms[2].elements[0].value == 2 ?
+        "-" : document.getElementById('ModelEditingReasonNumber').value);
+    postRequestObj.set("dealerBegin", Object.fromEntries(dealerBegin));
+    postRequestObj.set("date", document.getElementById('ModelEditingDateBegin').value);
+    postRequestObj.set("notification", forms[6].elements[0].value);
+    postRequestObj.set("memberNameBegin", forms[7].elements[0].value);
+
+    postRequestObj.set("dealerEnd", Object.fromEntries(dealerEnd));
+    postRequestObj.set("memberNameEnd", forms[13].elements[0].value);
+    postRequestObj.set("note", forms[14].elements[0].value);
+    postRequestObj.set("done", forms[15].elements[0].value);
+
+    postRequestObj.set("descriptions", descriptionsEdit);
+
+    removeEditRows();
+    console.log(postRequestObj);
 });
 

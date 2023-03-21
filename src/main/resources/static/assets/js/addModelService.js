@@ -15,7 +15,7 @@ async function sendBodyRequest(url, method, body) {
 async function downloadDocFile(url, method, name) {
 return await fetch(url, {method: method}).then(res => res.blob())
         .then(data => {
-            var a = document.createElement("a");
+            let a = document.createElement("a");
             a.href = window.URL.createObjectURL(data);
             a.download = name;
             a.click();
@@ -23,7 +23,7 @@ return await fetch(url, {method: method}).then(res => res.blob())
 }
 
 function addErrorField(form, inner) {
-    var error = document.createElement('div');
+    let error = document.createElement('div');
     error.className = 'error';
     error.style = "text-align: center;color: red;";
     error.innerHTML = inner;
@@ -87,7 +87,11 @@ function delWriteRow() {
 
 document.getElementById('reason').addEventListener('change', function (e) {
     let number = document.getElementById('reasonNumber');
-    number.style.display = e.target.value == 2 ? "none" : "block";
+    if (e.target.value === '2') {
+        number.style.display = "none";
+    } else {
+        number.style.display = "block";
+    }
 });
 
 document.getElementById("addButton").addEventListener("click", async () => {
