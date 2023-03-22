@@ -127,4 +127,10 @@ public class ManufactureServiceImpl implements ManufactureService {
         List<PreviewModels> allModelsByType = modelRepository.findByDeviceType(type);
         return allModelsByType.stream().map(this::getModelPreview).collect(Collectors.toList());
     }
+
+    @Override
+    public NumberOfEntriesResponseDto getRecordsCount() {
+        Long modelNumberOfEntries = modelRepository.count();
+        return new NumberOfEntriesResponseDto(0L, modelNumberOfEntries, 0L);
+    }
 }

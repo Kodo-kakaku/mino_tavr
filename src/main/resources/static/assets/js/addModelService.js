@@ -41,7 +41,7 @@ function checkFormValidation(forms) {
     let errorFlag = false;
     for (let i = 0; i < forms.length; i++) {
         if (i === 2 && forms[2].elements[0].value === "") {
-            if (forms[i - 1].elements[0].value === '0' || forms[i - 1].elements[0].value === '1') {
+            if (forms[i - 1].elements[0].value !== '2') {
                 addErrorField(forms[i], "Заполните поле!");
                 errorFlag = true;
             }

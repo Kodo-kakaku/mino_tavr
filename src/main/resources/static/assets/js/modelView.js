@@ -56,6 +56,8 @@ window.addEventListener("load", async () => {
                 modelSpanDate.style = "color: var(--bs-white);font-family: 'Abril Fatface', serif;font-size: 33px;";
                 modelSpanDate.innerHTML = i.date;
 
+                console.log(i);
+
                 let modelButton = document.createElement("button");
                 modelButton.className = "btn btn-light text-center";
                 modelButton.setAttribute('type', "button");
@@ -69,7 +71,7 @@ window.addEventListener("load", async () => {
 
                         console.log(result);
 
-                        let reasonType = ["\"Служебная записка\"", "\"Журнал\"", "\"Иное\""];
+                        let reasonType = ["\"Журнал\"", "\"Служебная записка\"", "\"Иное\""];
                         document.getElementById('modelViewReason').innerHTML = reasonType[result.reason];
                         document.getElementById('modelViewReasonNumber').innerHTML =
                             result.reason === 2 ? "-" : ("\"" + result.reasonNumber + "\"");
@@ -133,8 +135,10 @@ window.addEventListener("load", async () => {
                         document.getElementById('ModelEditingNumber').innerHTML = "№ " + result.id;
                         document.getElementById("ModelEditingDeviceType").selectedIndex = result.deviceType;
                         document.getElementById('ModelEditingReason').selectedIndex = result.reason;
-                        if (result.reason == 2) {
+                        console.log(result.reason);
+                        if (result.reason === 2) {
                             document.getElementById('ModelEditingReasonNumber').style.display = "none";
+                            document.getElementById('ModelEditingReasonNumber').value = "";
                         } else {
                             document.getElementById('ModelEditingReasonNumber').style.display = "block";
                             document.getElementById('ModelEditingReasonNumber').value = result.reasonNumber;
@@ -201,7 +205,7 @@ window.addEventListener("load", async () => {
         });
 });
 
-function addErrorField(form, inner) {
+function addEditErrorField(form, inner) {
     var error = document.createElement('div');
     error.className = 'error';
     error.style = "text-align: center;color: red;";
@@ -209,28 +213,35 @@ function addErrorField(form, inner) {
     form.parentElement.insertBefore(error, form.nextSibling);
 }
 
-function removeValidation() {
+function removeEditValidation() {
     const errors = document.querySelectorAll('.error');
     errors.forEach(error => {
         error.remove();
     });
 }
 
-function checkFormValidation(forms) {
+function checkEditFormValidation(forms) {
     let errorFlag = false;
     for (let i = 1; i < forms.length - 6; i++) {
-        if (forms[i].elements[0].value === "") {
-            addErrorField(forms[i], "Заполните поле!");
+        if(i === 6) {
+           // pass
+        } else if (forms[i].elements[0].value === "") {
+            addEditErrorField(forms[i], "Заполните поле!");
             errorFlag = true;
         }
     }
+
+    if(document.getElementById('ModelEditingDone').selectedIndex === 1) {
+        // TODO some fix form to add Done;
+    }
+
     return errorFlag;
 }
 
 document.getElementById('ModelEditingSave').addEventListener('click', async () => {
     const forms = document.getElementsByTagName("form");
-    removeValidation();
-    if (checkFormValidation(forms)) {
+    removeEditValidation();
+    if (checkEditFormValidation(forms)) {
         // TODO Fix save button, clear "P" on UI editing form, add server part to edit sql, text form fix!
         return;
     }
@@ -279,6 +290,7 @@ document.getElementById('ModelEditingSave').addEventListener('click', async () =
 
     postRequestObj.set("descriptions", descriptionsEdit);
 
+    // data-bs-target="#modal-2"
     removeEditRows();
     console.log(postRequestObj);
 });

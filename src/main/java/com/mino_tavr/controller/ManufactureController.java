@@ -1,9 +1,6 @@
 package com.mino_tavr.controller;
 
-import com.mino_tavr.dto.AddModelRequestDto;
-import com.mino_tavr.dto.ModelIdResponseDto;
-import com.mino_tavr.dto.PreviewModelsResponseDto;
-import com.mino_tavr.dto.SingleModelResponseDto;
+import com.mino_tavr.dto.*;
 import com.mino_tavr.service.docTemplateService.DocumentPath;
 import com.mino_tavr.service.docTemplateService.ManufacturingCard;
 import com.mino_tavr.service.docTemplateService.TicketCard;
@@ -25,9 +22,14 @@ import java.util.List;
 public class ManufactureController {
     private final ManufactureService manufacture;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @GetMapping(value = "/index")
     public String index() {
         return "index";
+    }
+
+    @GetMapping(value = "/records")
+    public NumberOfEntriesResponseDto numberOfEntriesDB() {
+        return manufacture.getRecordsCount();
     }
 
     @PostMapping("/add")
