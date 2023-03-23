@@ -77,7 +77,7 @@
                             <path d="M364.2 83.8C339.8 59.39 300.2 59.39 275.8 83.8L91.8 267.8C49.71 309.9 49.71 378.1 91.8 420.2C133.9 462.3 202.1 462.3 244.2 420.2L396.2 268.2C407.1 257.3 424.9 257.3 435.8 268.2C446.7 279.1 446.7 296.9 435.8 307.8L283.8 459.8C219.8 523.8 116.2 523.8 52.2 459.8C-11.75 395.8-11.75 292.2 52.2 228.2L236.2 44.2C282.5-2.08 357.5-2.08 403.8 44.2C450.1 90.48 450.1 165.5 403.8 211.8L227.8 387.8C199.2 416.4 152.8 416.4 124.2 387.8C95.59 359.2 95.59 312.8 124.2 284.2L268.2 140.2C279.1 129.3 296.9 129.3 307.8 140.2C318.7 151.1 318.7 168.9 307.8 179.8L163.8 323.8C157.1 330.5 157.1 341.5 163.8 348.2C170.5 354.9 181.5 354.9 188.2 348.2L364.2 172.2C388.6 147.8 388.6 108.2 364.2 83.8V83.8z"></path>
                         </svg>&nbsp;Заметки</p>
                     <div style="margin-left: 11px;">
-                        <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
+                        <form style="background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: 14px;">
                             <div class="form-group mb-3" style="margin-right: 13px;margin-left: 7px;"><textarea class="form-control" id="ModelViewNote" style="background: var(--bs-border-color-translucent);border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);margin-top: -10px;padding-right: 4px;margin-right: -16px;" readonly=""></textarea></div>
                         </form>
                     </div>
@@ -206,16 +206,17 @@
                                                 </optgroup>
                                             </select><label class="form-label text-center mb-0" for="float-input" style="margin-top: 7px;font-size: 19px;font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);">Основание проведения работ</label></div>
                                     </form>
-                                    <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: 8px;">
-                                        <div class="form-group mb-3" style="margin-top: 23px;">
-                                            <div class="input-group mb-4"><input class="form-control" type="text" id="ModelEditingReasonNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 19px;margin-left: 1px;border-radius: 6px;"></div>
+                                    <form>
+                                        <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: 8px;">
+                                            <div class="form-group mb-3" style="margin-top: 23px;">
+                                                <div class="input-group mb-4"><input class="form-control" type="text" id="ModelEditingReasonNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 19px;margin-left: 1px;border-radius: 6px;"></div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                             <div style="margin-top: -39px;">
-                                <p class="text-center" style="margin-top: 40px;margin-bottom: -26px;">P</p>
-                                <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 6px;padding-top: 0px;margin-top: 16px;">&nbsp;<i class="fas fa-people-carry" style="color: var(--bs-yellow);font-size: 25px;margin-left: 0px;"></i>&nbsp;Передал материальные ценности исполнителю</p>
+                                <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);margin-bottom: 6px;padding-top: 0px;margin-top: 36px;">&nbsp;<i class="fas fa-people-carry" style="color: var(--bs-yellow);font-size: 25px;margin-left: 0px;"></i>&nbsp;Передал материальные ценности исполнителю</p>
                                 <div class="row" style="margin-top: 0px;margin-bottom: 0px;">
                                     <div class="col-5 text-center"><label class="form-label text-center mb-0" for="float-input" style="font-size: 19px;font-family: 'Abril Fatface', serif;text-align: center;color: var(--bs-modal-bg);">Сотрудник</label>
                                         <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: -10px;">
@@ -249,7 +250,9 @@
                                         </form>
                                     </div>
                                     <div class="col-3 text-center">
-                                        <div class="field"><input class="form-control-sm" id="ModelEditingDateBegin" type="date" style="background: rgb(45,44,56);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 21px;margin-top: 0px;border-width: 1px;border-color: var(--bs-modal-bg);"><label class="form-label mb-0" for="float-input" style="font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);">Дата</label></div>
+                                        <form>
+                                            <div class="field"><input class="form-control form-control-sm" id="ModelEditingDateBegin" type="date" style="background: rgb(45,44,56);color: var(--bs-gray-400);font-family: 'Abril Fatface', serif;font-weight: bold;margin-left: -1px;border-radius: 6px;font-size: 21px;margin-top: 0px;border-width: 1px;border-color: var(--bs-modal-bg);"><label class="form-label mb-0" for="float-input" style="font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);">Дата</label></div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -285,6 +288,7 @@
                                         <p class="fs-1" id="rowNumber" style="margin-bottom: 6px;font-family: 'Kaushan Script', serif;color: var(--bs-yellow);margin-top: 95px;">1</p>
                                     </div>
                                     <div class="col-lg-8" style="border-radius: 6px;border: 1px solid var(--bs-modal-bg);margin-top: 9px;">
+                                        <p class="text-end" style="margin-bottom: 25px;"><button class="btn btn-secondary" id="ModelEditingDel" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-times" style="color: var(--bs-yellow);font-size: 16px;"></i></button></p>
                                         <div>
                                             <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
                                                 <div class="form-group mb-3"><input class="form-control" type="text" id="datePickerTo-1" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 16px;" placeholder="Наименование устройства"></div>
@@ -299,13 +303,11 @@
                             </div>
                             <div class="text-end" style="margin-top: 14px;margin-bottom: 31px;">
                                 <div class="row">
-                                    <div class="col-2 col-xl-2">
-                                        <div class="field"></div>
+                                    <div class="col"></div>
+                                    <div class="col-xl-7 text-center" style="padding-top: 0px;margin-top: -15px;">
+                                        <div class="field"><button class="btn btn-secondary" id="ModelEditingAdd" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button></div>
                                     </div>
-                                    <div class="col-2 col-xl-3 text-center" style="padding-top: 0px;margin-top: -15px;">
-                                        <div class="field"></div>
-                                    </div>
-                                    <div class="col-6 col-lg-7 col-xl-6 text-center" style="margin-top: -14px;"><button class="btn btn-secondary" id="ModelEditingAdd" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button><button class="btn btn-secondary" id="ModelEditingDel" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-trash" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Удалить ячейку</button></div>
+                                    <div class="col"></div>
                                 </div>
                             </div>
                         </div>
@@ -381,7 +383,7 @@
                                     <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
                                     <path d="M364.2 83.8C339.8 59.39 300.2 59.39 275.8 83.8L91.8 267.8C49.71 309.9 49.71 378.1 91.8 420.2C133.9 462.3 202.1 462.3 244.2 420.2L396.2 268.2C407.1 257.3 424.9 257.3 435.8 268.2C446.7 279.1 446.7 296.9 435.8 307.8L283.8 459.8C219.8 523.8 116.2 523.8 52.2 459.8C-11.75 395.8-11.75 292.2 52.2 228.2L236.2 44.2C282.5-2.08 357.5-2.08 403.8 44.2C450.1 90.48 450.1 165.5 403.8 211.8L227.8 387.8C199.2 416.4 152.8 416.4 124.2 387.8C95.59 359.2 95.59 312.8 124.2 284.2L268.2 140.2C279.1 129.3 296.9 129.3 307.8 140.2C318.7 151.1 318.7 168.9 307.8 179.8L163.8 323.8C157.1 330.5 157.1 341.5 163.8 348.2C170.5 354.9 181.5 354.9 188.2 348.2L364.2 172.2C388.6 147.8 388.6 108.2 364.2 83.8V83.8z"></path>
                                 </svg>&nbsp;Заметки</p>
-                            <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
+                            <form style="background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: 14px;">
                                 <div class="form-group mb-3" style="margin-right: 14px;margin-left: 14px;"><textarea class="form-control" id="ModelEditingNote" placeholder="Поле для заметок или примечаний" style="background: rgb(45,44,56);border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);margin-top: -10px;padding-right: 4px;margin-left: 0px;margin-right: 0px;"></textarea></div>
                             </form>
                             <p class="fs-3 text-center" style="font-family: 'Abril Fatface', serif;color: var(--bs-modal-bg);padding-top: 0px;margin-top: 5px;margin-bottom: 0px;"><i class="fas fa-cogs" style="color: var(--bs-yellow);font-size: 25px;"></i>&nbsp;Статус изготовления</p>
@@ -403,7 +405,7 @@
                     </div>
                     <div class="files color form-group mb-3"><input type="file" multiple="" name="files" style="background: var(--bs-border-color-translucent);"></div>
                 </div>
-                 <div class="modal-footer text-center" style="background: rgb(45,44,56);border-width: 1px;"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal" style="background: var(--bs-border-color-translucent);"><i class="far fa-window-close" style="color: var(--bs-red);"></i>&nbsp;Закрыть</button><button class="btn btn-secondary" id="ModelEditingSave" type="submit" style="background: var(--bs-border-color-translucent);"><i class="fas fa-save" style="color: var(--bs-warning);"></i>&nbsp;Сохранить</button></div>
+                <div class="modal-footer text-center" style="background: rgb(45,44,56);border-width: 1px;"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal" style="background: var(--bs-border-color-translucent);"><i class="far fa-window-close" style="color: var(--bs-red);"></i>&nbsp;Закрыть</button><button class="btn btn-secondary" id="ModelEditingSave" type="button" style="background: var(--bs-border-color-translucent);"><i class="fas fa-save" style="color: var(--bs-warning);"></i>&nbsp;Сохранить</button></div>
             </div>
         </div>
     </div>
@@ -462,6 +464,7 @@
     <script src="../assets/js/modelEditing.js"></script>
     <script src="../assets/js/modelView.js"></script>
     <script src="../assets/js/MUSA_product-display-product-display.js"></script>
+    <script src="../assets/js/numberOfEntries.js"></script>
 </body>
 
 </html>

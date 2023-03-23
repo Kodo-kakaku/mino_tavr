@@ -278,6 +278,7 @@ document.getElementById('ModelEditingSave').addEventListener('click', async () =
     postRequestObj.set("reason", forms[2].elements[0].value);
     postRequestObj.set("reasonNumber", forms[2].elements[0].value == 2 ?
         "-" : document.getElementById('ModelEditingReasonNumber').value);
+    
     postRequestObj.set("dealerBegin", Object.fromEntries(dealerBegin));
     postRequestObj.set("date", document.getElementById('ModelEditingDateBegin').value);
     postRequestObj.set("notification", forms[6].elements[0].value);

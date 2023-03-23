@@ -123,12 +123,13 @@
                             <div id="device">
                                 <div class="row" id="deviceRow" style="margin-top: 1px;margin-bottom: 31px;">
                                     <div class="col-2">
-                                        <p class="fs-1" id="rowNumber" style="margin-bottom: 6px;font-family: 'Kaushan Script', serif;color: var(--bs-yellow);margin-top: 95px;">1</p>
+                                        <p class="fs-1 text-center" id="rowNumber" style="margin-bottom: 6px;font-family: 'Kaushan Script', serif;color: var(--bs-yellow);margin-top: 125px;">1</p>
                                     </div>
-                                    <div class="col-lg-8" style="border-radius: 6px;border: 1px solid var(--bs-modal-bg);margin-top: 9px;">
+                                    <div class="col-lg-8" style="border-radius: 6px;border: 1px solid var(--bs-modal-bg);margin-top: 14px;">
+                                        <p class="text-end" style="margin-bottom: 18px;margin-top: 7px;"><button class="btn btn-secondary" id="delWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-times" style="color: var(--bs-yellow);font-size: 16px;"></i></button></p>
                                         <div>
                                             <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="deviceName" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 16px;" placeholder="Наименование устройства"></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="deviceName" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 27px;" placeholder="Наименование устройства"></div>
                                                 <div class="form-group mb-3"><input class="form-control" type="text" id="serialNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 5px;margin-bottom: -8px;" placeholder="Серийный номер устройства"></div>
                                                 <div class="form-group mb-3"><input class="form-control" type="text" id="inventoryNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 7px;padding-bottom: 10px;margin-bottom: -8px;" placeholder="Инвентарный номер устройства"></div>
                                                 <div class="form-group mb-3"><textarea class="form-control" id="remark" placeholder="Примичание" style="background: rgb(45,44,56);margin-top: 17px;border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);"></textarea></div>
@@ -140,13 +141,11 @@
                             </div>
                             <div class="text-end" style="margin-top: 14px;margin-bottom: 31px;">
                                 <div class="row">
-                                    <div class="col-2 col-xl-2">
-                                        <div class="field"></div>
+                                    <div class="col"></div>
+                                    <div class="col-xl-7 text-center" style="padding-top: 0px;margin-top: -15px;">
+                                        <div class="text-center field"><button class="btn btn-secondary" id="addWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button></div>
                                     </div>
-                                    <div class="col-2 col-xl-3 text-center" style="padding-top: 0px;margin-top: -15px;">
-                                        <div class="field"></div>
-                                    </div>
-                                    <div class="col-6 col-lg-7 col-xl-6 text-center" style="margin-top: -14px;"><button class="btn btn-secondary" id="addWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button><button class="btn btn-secondary" id="delWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-trash" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Удалить ячейку</button></div>
+                                    <div class="col"></div>
                                 </div>
                             </div>
                         </div>
@@ -278,6 +277,7 @@
     <script src="../assets/js/modelEditing.js"></script>
     <script src="../assets/js/modelView.js"></script>
     <script src="../assets/js/MUSA_product-display-product-display.js"></script>
+    <script src="../assets/js/numberOfEntries.js"></script>
 </body>
 
 </html>
