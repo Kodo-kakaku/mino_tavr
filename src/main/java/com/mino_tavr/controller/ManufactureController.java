@@ -1,6 +1,6 @@
 package com.mino_tavr.controller;
 
-import com.mino_tavr.dto.*;
+import com.mino_tavr.dto.manufacturing.*;
 import com.mino_tavr.service.docTemplateService.DocumentPath;
 import com.mino_tavr.service.docTemplateService.ManufacturingCard;
 import com.mino_tavr.service.docTemplateService.TicketCard;
@@ -35,6 +35,11 @@ public class ManufactureController {
     @PostMapping("/add")
     public ModelIdResponseDto addModel(@RequestBody AddModelRequestDto modelData) {
         return manufacture.addModel(modelData);
+    }
+
+    @PostMapping("/update")
+    public void updateModel(@RequestBody SingleModelResponseDto modelData) throws IOException {
+        manufacture.updateModel(modelData);
     }
 
     @GetMapping("/{id}")

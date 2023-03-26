@@ -1,4 +1,4 @@
-package com.mino_tavr.dto;
+package com.mino_tavr.dto.manufacturing;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

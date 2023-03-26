@@ -1,45 +1,19 @@
-async function sendRequest(url, method) {
-    return await fetch(url, {method: method})
-        .then(async response => {
-            if (response.ok && method !== 'DELETE') {
-                return response.json();
-            }
-            return response.status;
-        })
-}
-
-document.getElementById('ModelEditingReason').addEventListener('change', function (e) {
+document.getElementById('ModelEditingReason').addEventListener('change', (e) => {
     let number = document.getElementById('ModelEditingReasonNumber');
-    if (e.target.value === '2') {
-        number.style.display = "none";
-    } else {
-        number.style.display = "block";
-    }
+    viewOtherField(e, number);
 });
 
-function addEditRows(descriptions) {
-    for (let i = 0; i < descriptions.length - 1; i++) {
-        let newDeviceRow = document.getElementById("deviceRowEdit").cloneNode(true);
-        document.getElementById("deviceEdit").appendChild(newDeviceRow);
-    }
-    let rowNumbers = document.getElementsByClassName("fs-1");
-    for (let i = 0; i < rowNumbers.length; i++) {
-        rowNumbers[i].textContent = 1 + i;
-    }
-}
-
-function removeEditRows() {
-    const descriptionRows = document.getElementsByClassName("row");
-    for (let i = descriptionRows.length - 8; i > 9; i--) {
-        descriptionRows[i].remove();
-    }
-}
+document.getElementById('ModelEditingAdd').addEventListener('click', () => {
+    let device = document.getElementById("deviceEdit");
+    addWriteRow(device);
+});
 
 window.addEventListener("load", async () => {
     const modelRows = document.getElementById("modelRows");
     const type = document.getElementById("modelType");
-    const resp = sendRequest("/manufacture/models/" + type.innerHTML, 'GET')
+    sendRequest("/manufacture/models/" + type.innerHTML, 'GET')
         .then((result) => {
+            console.log(result);
             for (let i of result) {
                 let modelSpanNumber = document.createElement("span");
                 modelSpanNumber.style = "color: var(--bs-white);font-family: 'Abril Fatface', serif;font-size: 33px;";
@@ -56,8 +30,6 @@ window.addEventListener("load", async () => {
                 modelSpanDate.style = "color: var(--bs-white);font-family: 'Abril Fatface', serif;font-size: 33px;";
                 modelSpanDate.innerHTML = i.date;
 
-                console.log(i);
-
                 let modelButton = document.createElement("button");
                 modelButton.className = "btn btn-light text-center";
                 modelButton.setAttribute('type', "button");
@@ -68,8 +40,6 @@ window.addEventListener("load", async () => {
                         $('#modalViewModel').modal('show');
                         document.getElementById('modelViewNumber').innerHTML = "№ " + result.id;
                         document.getElementById('modelViewStatus').innerHTML = result.done ? "Завершена" : "В работе";
-
-                        console.log(result);
 
                         let reasonType = ["\"Журнал\"", "\"Служебная записка\"", "\"Иное\""];
                         document.getElementById('modelViewReason').innerHTML = reasonType[result.reason];
@@ -135,7 +105,6 @@ window.addEventListener("load", async () => {
                         document.getElementById('ModelEditingNumber').innerHTML = "№ " + result.id;
                         document.getElementById("ModelEditingDeviceType").selectedIndex = result.deviceType;
                         document.getElementById('ModelEditingReason').selectedIndex = result.reason;
-                        console.log(result.reason);
                         if (result.reason === 2) {
                             document.getElementById('ModelEditingReasonNumber').style.display = "none";
                             document.getElementById('ModelEditingReasonNumber').value = "";
@@ -154,10 +123,13 @@ window.addEventListener("load", async () => {
                         }
                         document.getElementById('ModelEditingMemberBegin').value = result.interactionBegin.member.name;
 
-                        removeEditRows();
-                        addEditRows(result.descriptions);
+                        delAllRows();
+                        for (let i = 0; i < result.descriptions.length - 1; i++) {
+                            let device = document.getElementById("deviceEdit");
+                            addWriteRow(device);
+                        }
 
-                        let i = 8;
+                        let i = 10;
                         const forms = document.getElementsByTagName("form");
                         for (let description of result.descriptions) {
                             forms[i].elements[0].value = description.device;
@@ -205,52 +177,25 @@ window.addEventListener("load", async () => {
         });
 });
 
-function addEditErrorField(form, inner) {
-    var error = document.createElement('div');
-    error.className = 'error';
-    error.style = "text-align: center;color: red;";
-    error.innerHTML = inner;
-    form.parentElement.insertBefore(error, form.nextSibling);
-}
-
-function removeEditValidation() {
-    const errors = document.querySelectorAll('.error');
-    errors.forEach(error => {
-        error.remove();
-    });
-}
-
-function checkEditFormValidation(forms) {
-    let errorFlag = false;
-    for (let i = 1; i < forms.length - 6; i++) {
-        if(i === 6) {
-           // pass
-        } else if (forms[i].elements[0].value === "") {
-            addEditErrorField(forms[i], "Заполните поле!");
-            errorFlag = true;
-        }
-    }
-
-    if(document.getElementById('ModelEditingDone').selectedIndex === 1) {
-        // TODO some fix form to add Done;
-    }
-
-    return errorFlag;
-}
-
 document.getElementById('ModelEditingSave').addEventListener('click', async () => {
     const forms = document.getElementsByTagName("form");
-    removeEditValidation();
+    removeValidation();
     if (checkEditFormValidation(forms)) {
-        // TODO Fix save button, clear "P" on UI editing form, add server part to edit sql, text form fix!
         return;
     }
+    const toBase64 = file => new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+    });
 
     let id = document.getElementById('modelViewNumber').innerHTML;
     id = id.substring(2, id.length);
 
+    console.log(forms);
     let descriptionsEdit = [];
-    for (let i = 8; i < forms.length - 6; i++) {
+    for (let i = 10; i < forms.length - 8; i++) {
         descriptionsEdit.push(Object.fromEntries(new Map([
             ["device", forms[i].elements[0].value],
             ["serialNumber", forms[i].elements[1].value],
@@ -259,40 +204,75 @@ document.getElementById('ModelEditingSave').addEventListener('click', async () =
         ])));
     }
 
-    let dealerBegin = new Map([
-        ["name", forms[3].elements[0].value],
-        ["subdivision", forms[4].elements[0].value],
-        ["department", forms[5].elements[0].value]
+    const dealerBegin = new Map([
+        ["name", forms[4].elements[0].value],
+        ["subdivision", forms[5].elements[0].value],
+        ["department", forms[6].elements[0].value]
     ]);
 
-    let dealerEnd = new Map([
-        ["name", forms[10].elements[0].value],
-        ["subdivision", forms[11].elements[0].value],
-        ["department", forms[12].elements[0].value]
+    const memberBegin = new Map([
+        ["name", forms[9].elements[0].value],
+        ["subdivision", '25'],
+        ["department", 'Т']
     ]);
 
-    // TODO Fix form ReasonNumber
+    const interactionBegin = new Map([
+        ["date", forms[7].elements[0].value],
+        ["dealer", Object.fromEntries(dealerBegin)],
+        ["member", Object.fromEntries(memberBegin)]
+    ]);
+
+    const dealerEnd = new Map([
+        ["name", forms[forms.length - 8].elements[0].value === '' ?
+            '-' : forms[forms.length - 8].elements[0].value],
+        ["subdivision", forms[forms.length - 7].elements[0].value === '' ?
+            '-' : forms[forms.length - 7].elements[0].value],
+        ["department", forms[forms.length - 6].elements[0].value === '' ?
+            '-' : forms[forms.length - 6].elements[0].value]
+    ]);
+
+    const memberEnd = new Map([
+        ["name", forms[forms.length - 4].elements[0].value === '' ?
+            '-' : forms[forms.length - 4].elements[0].value],
+        ["subdivision", (forms[forms.length - 4].elements[0].value === '' ? '-' : '25')],
+        ["department", (forms[forms.length - 4].elements[0].value === '' ? '-' : 'Т')]
+    ]);
+
+    const interactionEnd = new Map([
+        ["date", forms[forms.length - 5].elements[0].value === '' ?
+            null : forms[forms.length - 5].elements[0].value],
+        ["dealer", Object.fromEntries(dealerEnd)],
+        ["member", Object.fromEntries(memberEnd)]
+    ]);
+
     let postRequestObj = new Map;
     postRequestObj.set("id", Number(id));
     postRequestObj.set("deviceType", forms[1].elements[0].value);
     postRequestObj.set("reason", forms[2].elements[0].value);
-    postRequestObj.set("reasonNumber", forms[2].elements[0].value == 2 ?
-        "-" : document.getElementById('ModelEditingReasonNumber').value);
-    
-    postRequestObj.set("dealerBegin", Object.fromEntries(dealerBegin));
-    postRequestObj.set("date", document.getElementById('ModelEditingDateBegin').value);
-    postRequestObj.set("notification", forms[6].elements[0].value);
-    postRequestObj.set("memberNameBegin", forms[7].elements[0].value);
+    postRequestObj.set("reasonNumber", forms[2].elements[0].value === '2' ? "-" : forms[3].elements[0].value);
+    postRequestObj.set("notification", forms[8].elements[0].value);
 
-    postRequestObj.set("dealerEnd", Object.fromEntries(dealerEnd));
-    postRequestObj.set("memberNameEnd", forms[13].elements[0].value);
-    postRequestObj.set("note", forms[14].elements[0].value);
-    postRequestObj.set("done", forms[15].elements[0].value);
+    postRequestObj.set("interactionBegin", Object.fromEntries(interactionBegin));
+    postRequestObj.set("interactionEnd", Object.fromEntries(interactionEnd));
 
+    postRequestObj.set("note", forms[forms.length - 3].elements[0].value);
+    postRequestObj.set("done", forms[forms.length - 2].elements[0].value !== '0');
     postRequestObj.set("descriptions", descriptionsEdit);
 
-    // data-bs-target="#modal-2"
-    removeEditRows();
+    // add model image
+    let img = null;
+    if (document.getElementById('imageFile').files.length) {
+        const file = document.getElementById('imageFile').files[0];
+        img = (await toBase64(file)).split(',')[1];
+    }
+    postRequestObj.set("image", img);
+
+    delAllRows();
+    delValuesFromForms(forms);
+    $('#ModelEditing').modal('hide');
+    await sendBodyRequest("/manufacture/update", 'POST', postRequestObj);
     console.log(postRequestObj);
+    console.log(JSON.stringify(Object.fromEntries(postRequestObj)));
 });
 
+// TODO Add action to doc button

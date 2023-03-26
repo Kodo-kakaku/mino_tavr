@@ -1,7 +1,8 @@
 package com.mino_tavr.service.manufactureService;
 
-import com.mino_tavr.dto.*;
+import com.mino_tavr.dto.manufacturing.*;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ManufactureService {
@@ -9,12 +10,6 @@ public interface ManufactureService {
     SingleModelResponseDto getModelById(Integer modelId);
     List<PreviewModelsResponseDto> getModelsByDeviceType(Integer type);
     NumberOfEntriesResponseDto getRecordsCount();
-
-    // TODO
-
-
-    // List<AllCardNumberResponseDto> getAllCardNumber();
-
-   //  SingleCardNumberResponseDto getCardNumberById(Integer id);
+    void updateModel(SingleModelResponseDto modelData) throws IOException;
 }
 

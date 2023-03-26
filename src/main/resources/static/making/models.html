@@ -17,14 +17,8 @@
     <link rel="stylesheet" href="../assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="../assets/css/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.css">
     <link rel="stylesheet" href="../assets/css/Bootstrap-4---Photo-Gallery.css">
-    <link rel="stylesheet" href="../assets/css/Drag-and-Drop-File-Input.css">
-    <link rel="stylesheet" href="../assets/css/Drag-and-Drop-Multiple-File-Form-Input-upload-Advanced.css">
-    <link rel="stylesheet" href="../assets/css/Drag-Drop-File-Input-Upload.css">
     <link rel="stylesheet" href="../assets/css/Filter.css">
     <link rel="stylesheet" href="../assets/css/Footer-Clean-icons.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="../assets/css/MUSA_product-display-product-display.css">
-    <link rel="stylesheet" href="../assets/css/MUSA_product-display.css">
     <link rel="stylesheet" href="../assets/css/Projects-Grid-images.css">
     <link rel="stylesheet" href="../assets/css/Search-Input-Responsive-with-Icon.css">
     <link rel="stylesheet" href="../assets/css/select.css">
@@ -45,7 +39,7 @@
                             <div class="row" style="margin-top: 6px;">
                                 <div class="col">
                                     <form>
-                                        <div class="field"><select class="form-select" id="deviceType" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;">
+                                        <div class="field"><select class="form-select" id="deviceType" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;height: 44px;">
                                                 <optgroup label="Типы устройств">
                                                     <option value="0">Аудио</option>
                                                     <option value="1" selected="">Фото</option>
@@ -57,7 +51,7 @@
                                 </div>
                                 <div class="col" style="font-family: 'Noto Sans', sans-serif;">
                                     <form>
-                                        <div class="field"><select class="form-select" id="reason" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;">
+                                        <div class="field"><select class="form-select" id="reason" style="background: rgb(45,44,56);color: var(--bs-gray-400);text-align: center;font-size: 19px;font-family: 'Abril Fatface', serif;height: 44px;">
                                                 <optgroup label="Виды оснований">
                                                     <option value="0" selected="">Журнал</option>
                                                     <option value="1">Служебная записка</option>
@@ -68,7 +62,7 @@
                                     <form>
                                         <div class="text-start custom-control custom-radio" style="font-family: 'Kaushan Script', serif;font-size: 20px;margin-top: 8px;">
                                             <div class="form-group mb-3" style="margin-top: 23px;">
-                                                <div class="input-group mb-4"><input class="form-control noEnterSubmit" type="text" id="reasonNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 19px;margin-left: 1px;border-radius: 6px;" placeholder="Укажите номер основания"></div>
+                                                <div class="input-group mb-4"><input class="form-control noEnterSubmit" type="text" id="reasonNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 19px;margin-left: 1px;border-radius: 6px;height: 44px;" placeholder="Укажите номер основания"></div>
                                             </div>
                                         </div>
                                     </form>
@@ -81,7 +75,7 @@
                                         <div class="text-start custom-control custom-radio" style="font-family: 'Abril Fatface', serif;font-size: 20px;margin-top: -10px;">
                                             <form>
                                                 <div class="form-group mb-3" style="margin-top: 23px;font-family: 'Noto Sans', sans-serif;">
-                                                    <div class="input-group mb-4"><input class="form-control noEnterSubmit" type="text" id="name" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 16px;margin-left: 1px;border-radius: 6px;" placeholder="ФИО"></div>
+                                                    <div class="input-group mb-4"><input class="form-control noEnterSubmit" type="text" id="name" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);margin-top: -13px;margin-bottom: -11px;font-size: 16px;margin-left: 1px;border-radius: 6px;height: 44px;" placeholder="ФИО"></div>
                                                 </div>
                                             </form>
                                         </div>
@@ -126,12 +120,12 @@
                                         <p class="fs-1 text-center" id="rowNumber" style="margin-bottom: 6px;font-family: 'Kaushan Script', serif;color: var(--bs-yellow);margin-top: 125px;">1</p>
                                     </div>
                                     <div class="col-lg-8" style="border-radius: 6px;border: 1px solid var(--bs-modal-bg);margin-top: 14px;">
-                                        <p class="text-end" style="margin-bottom: 18px;margin-top: 7px;"><button class="btn btn-secondary" id="delWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-times" style="color: var(--bs-yellow);font-size: 16px;"></i></button></p>
+                                        <p class="text-end" style="margin-bottom: 18px;margin-top: 8px;"><button class="btn btn-secondary" id="delWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-times" style="color: var(--bs-yellow);font-size: 16px;"></i></button></p>
                                         <div>
                                             <form style="margin-top: 10px;background: rgb(45,44,56);color: var(--bs-modal-bg);">
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="deviceName" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 27px;" placeholder="Наименование устройства"></div>
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="serialNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 5px;margin-bottom: -8px;" placeholder="Серийный номер устройства"></div>
-                                                <div class="form-group mb-3"><input class="form-control" type="text" id="inventoryNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 7px;padding-bottom: 10px;margin-bottom: -8px;" placeholder="Инвентарный номер устройства"></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="deviceName" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-bottom: -7px;margin-top: 27px;height: 44px;" placeholder="Наименование устройства"></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="serialNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 5px;margin-bottom: -8px;height: 44px;" placeholder="Серийный номер устройства"></div>
+                                                <div class="form-group mb-3"><input class="form-control" type="text" id="inventoryNumber" style="font-family: 'Abril Fatface', serif;text-align: left;background: rgb(45,44,56);color: var(--bs-modal-bg);font-size: 19px;margin-left: 1px;border-radius: 6px;margin-top: 7px;padding-bottom: 10px;margin-bottom: -8px;height: 44px;" placeholder="Инвентарный номер устройства"></div>
                                                 <div class="form-group mb-3"><textarea class="form-control" id="remark" placeholder="Примичание" style="background: rgb(45,44,56);margin-top: 17px;border-radius: 6px;font-family: 'Abril Fatface', serif;font-size: 19px;color: var(--bs-modal-bg);"></textarea></div>
                                             </form>
                                         </div>
@@ -143,7 +137,7 @@
                                 <div class="row">
                                     <div class="col"></div>
                                     <div class="col-xl-7 text-center" style="padding-top: 0px;margin-top: -15px;">
-                                        <div class="text-center field"><button class="btn btn-secondary" id="addWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить ячейку</button></div>
+                                        <div class="text-center field"><button class="btn btn-secondary" id="addWrite" type="button" style="color: var(--bs-modal-bg);background: var(--bs-border-color-translucent);margin-bottom: -24px;margin-top: -6px;margin-right: 10px;font-family: 'Noto Sans', sans-serif;"><i class="fas fa-plus" style="color: var(--bs-yellow);font-size: 16px;"></i>&nbsp;Добавить форму</button></div>
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -268,16 +262,12 @@
     <script src="../assets/js/addModelService.js"></script>
     <script src="../assets/js/Animated-Pretty-Product-List-v12-Animated-Pretty-Product-List.js"></script>
     <script src="../assets/js/DateRangePicker-My-Date-Picker.js"></script>
-    <script src="../assets/js/Drag-and-Drop-File-Input-Drag-And-Drop-Image.js"></script>
-    <script src="../assets/js/Drag-and-Drop-Multiple-File-Form-Input-upload-Advanced-drop.js"></script>
-    <script src="../assets/js/Dynamically-Add-Remove-Table-Row-style.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <script src="../assets/js/modelEditing.js"></script>
+    <script src="../assets/js/validationForm.js"></script>
     <script src="../assets/js/modelView.js"></script>
     <script src="../assets/js/MUSA_product-display-product-display.js"></script>
     <script src="../assets/js/numberOfEntries.js"></script>
+    <script src="../assets/js/rowManager.js"></script>
+    <script src="../assets/js/serviceRequest.js"></script>
 </body>
 
 </html>

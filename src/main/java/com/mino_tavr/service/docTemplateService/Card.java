@@ -1,6 +1,6 @@
 package com.mino_tavr.service.docTemplateService;
 
-import com.mino_tavr.dto.SingleModelResponseDto;
+import com.mino_tavr.dto.manufacturing.SingleModelResponseDto;
 import lombok.Getter;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;

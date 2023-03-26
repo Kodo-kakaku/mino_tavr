@@ -1,4 +1,4 @@
-package com.mino_tavr.dto;
+package com.mino_tavr.dto.manufacturing;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,9 +12,8 @@ public class AddModelRequestDto {
     private int deviceType;
     private int reason;
     private String reasonNumber;
-    private EmployeeDto dealer;
-    private Date date;
     private Date notification;
-    private String memberName;
+    private InteractionDto interactionBegin;
+    private InteractionDto interactionEnd;
     private List<DescriptionDto> descriptions;
 }
