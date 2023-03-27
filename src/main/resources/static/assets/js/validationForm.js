@@ -55,13 +55,18 @@ function checkFormValidation(forms) {
 function checkEditFormValidation(forms) {
     let errorFlag = false;
     for (let i = 1; i < forms.length - 8; i++) {
-        if (i === 2 && forms[2].elements[0].value === "") {
+        if (i === 3 && forms[i].elements[0].value === "") {
             if (forms[i - 1].elements[0].value !== '2') {
                 addErrorField(forms[i], "Заполните поле!");
                 errorFlag = true;
             }
         } else if (i === 8) {
             // notification pass
+        } else if (i > 9 && i < forms.length - 8) {
+            if (forms[i].elements[0].value === "") {
+                addErrorField(forms[i], "Заполните поле: Наименование устройства!");
+                errorFlag = true;
+            }
         } else if (forms[i].elements[0].value === "") {
             addErrorField(forms[i], "Заполните поле!");
             errorFlag = true;
