@@ -149,12 +149,7 @@ window.addEventListener("load", async () => {
                             document.getElementById('ModelEditingMemberEnd').value = result.interactionEnd.member.name;
                             document.getElementById('ModelEditingDone').selectedIndex = 1;
                         } else {
-                            document.getElementById('ModelEditingDealerEnd').selectedIndex = -1;
-                            document.getElementById('ModelEditingSubdivisionEnd').selectedIndex = -1;
-                            document.getElementById('ModelEditingDepartmentEnd').selectedIndex = -1;
-                            document.getElementById('ModelEditingDateEnd').selectedIndex = -1;
-                            document.getElementById('ModelEditingMemberEnd').value = -1;
-                            document.getElementById('ModelEditingDone').selectedIndex = 0;
+                            cleanInteractionEnd();
                         }
                     });
                 };
@@ -275,4 +270,20 @@ document.getElementById('ModelEditingSave').addEventListener('click', async () =
     console.log(JSON.stringify(Object.fromEntries(postRequestObj)));
 });
 
-// TODO Add action to doc button
+document.getElementById('ModelEditingDone').addEventListener('change', (e) => {
+    if(document.getElementById('ModelEditingDone').value === '0') {
+       cleanInteractionEnd();
+    }
+});
+
+document.getElementById('saveTicketDoc').addEventListener('click', () => {
+    let id = document.getElementById('modelViewNumber').innerHTML;
+    id = id.substring(2, id.length);
+    downloadDocFile("/manufacture/doc/1/" + id, 'GET', "Талон модели №" + id);
+});
+
+document.getElementById('saveModelDoc').addEventListener('click', () => {
+    let id = document.getElementById('modelViewNumber').innerHTML;
+    id = id.substring(2, id.length);
+    downloadDocFile("/manufacture/doc/2/" + id, 'GET', "Талон модели №" + id);
+});

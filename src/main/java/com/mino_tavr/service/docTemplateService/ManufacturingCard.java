@@ -26,6 +26,7 @@ public class ManufacturingCard extends Card {
         writeField(deviceTypeCell, this.getDeviceType()[docData.getDeviceType()], fs);
 
         final var image = tables.get(0).getRow(0).getCell(1);
+        image.removeParagraph(0);
         image.addParagraph().createRun().addPicture(
                 new ByteArrayInputStream(docData.getImage()),
                 Document.PICTURE_TYPE_JPEG,

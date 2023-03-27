@@ -35,11 +35,11 @@ function checkFormValidation(forms) {
                 errorFlag = true;
             }
         } else if (i === forms.length - 2) {
-            if(forms[i].elements[0].value !== "" && forms[6].elements[0].value !== "") {
+            if (forms[i].elements[0].value !== "" && forms[6].elements[0].value !== "") {
                 let notification = new Date(forms[i].elements[0].value);
                 let makingStartDate = new Date(forms[6].elements[0].value);
                 let dateDifferent = Math.round((notification - makingStartDate) / (1000 * 60 * 60 * 24));
-                if(dateDifferent <= 0) {
+                if (dateDifferent <= 0) {
                     addErrorField(forms[i], "Нельзя установить уведомление в прошлом или настоящем!");
                     errorFlag = true;
                 }
@@ -50,6 +50,14 @@ function checkFormValidation(forms) {
         }
     }
     return errorFlag;
+}
+
+function cleanInteractionEnd() {
+    document.getElementById('ModelEditingDealerEnd').value = '';
+    document.getElementById('ModelEditingSubdivisionEnd').selectedIndex = -1;
+    document.getElementById('ModelEditingDepartmentEnd').selectedIndex = -1;
+    document.getElementById('ModelEditingDateEnd').selectedIndex = -1;
+    document.getElementById('ModelEditingMemberEnd').value = '';
 }
 
 function checkEditFormValidation(forms) {
@@ -73,18 +81,41 @@ function checkEditFormValidation(forms) {
         }
     }
 
-    if (forms[forms.length - 2].elements[0].value !== '0') {
-        for (let i = forms.length - 8; i < forms.length - 1; i++) {
-            if(i === forms.length - 3) {
-                // note pass
-            } else if (forms[i].elements[0].value === "") {
-                addErrorField(forms[i], "Заполните поле!");
-                errorFlag = true;
+    let endStatus = 0;
+    if(!errorFlag) {
+        if (forms[forms.length - 2].elements[0].value !== '0') {
+            for (let i = forms.length - 8; i < forms.length - 2; i++) {
+                if (i === forms.length - 3) {
+                    // note pass
+                } else if (forms[i].elements[0].value === "") {
+                    addErrorField(forms[i], "Заполните поле!");
+                    errorFlag = true;
+                    endStatus = -1;
+                }
             }
         }
-        if(errorFlag) {
-            addErrorField(forms[forms.length - 2], "Для завершения работы, заполните обязательные поля!");
+
+        if (forms[forms.length - 2].elements[0].value === '0') {
+            for (let i = forms.length - 8; i < forms.length - 2; i++) {
+                if (i === forms.length - 3) {
+                    // note pass
+                } else if (forms[i].elements[0].value !== "") {
+                    errorFlag = true;
+                    endStatus = 1;
+                }
+            }
         }
+    }
+
+    if (endStatus === -1) {
+        addErrorField(forms[forms.length - 2], "Для завершения работы, " +
+            "заполните обязательные поля!");
+    }
+
+    if (endStatus === 1) {
+        cleanInteractionEnd();
+        addErrorField(forms[forms.length - 2], "Необходимо заполнить " +
+            "обязательные поля и сменить статус изделия на: Завершена!");
     }
 
     return errorFlag;
